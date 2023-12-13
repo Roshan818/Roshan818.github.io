@@ -1,0 +1,114 @@
+baseURL: "https://roshan818.github.io/"
+title: Roshan Kumar
+paginate: 20
+theme: PaperMod
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+
+taxonomies:
+  tag: tags
+
+menu:
+  main:
+    - name: Experience
+      url: experience/
+      weight: 1
+    - name: Projects
+      url: projects/
+      weight: 2
+    - name: About Me
+      url: data/
+      weight: 3
+    # - name: Newsletter
+    #   url: https://pmichaillat.substack.com
+    #   weight: 4
+
+params:
+  description: "I am Roshan"
+  author: Roshan Kumar
+  # googleAnalyticsID: "G-XXXXX"
+  DateFormat: "January 2006"
+  defaultTheme: dark
+  hideFooter: false
+  disableThemeToggle: true
+  ShowShareButtons: false
+  ShowReadingTime: false
+  disableSpecial1stPost: true
+  disableAnchoredHeadings: true
+  ShowPostNavLinks: false
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: false
+  ShowToc: false
+  disableScrollToTop: true
+  TocOpen: true
+  ShowWordCount: false
+  UseHugoToc: true
+  comments: false
+  math: true
+  profileMode:
+    enabled: true
+    title: Roshan Kumar
+    subtitle: "<i>Website is under construction. Some of the information might be wrong/outdated.</i> <br><br>
+    A budding robocist who aims to evolve, innovate, and inspire through technology. <br>
+    I am a senior undergraduate student at Indian Institute of Technology (IIT) Guwahati where I'm majoring in Civil Engineering. I am specifically interested in applied CS Research with special interest in ML/AI and Non-Linear Systems. I am also a recepient of the New-Gen IEDC from Government of India for underwater ROV AntahSagari."
+    imageUrl: "IMG.jpg"
+    imageWidth: 160
+    imageHeight: 160
+    imageTitle: Roshan Kumar
+    buttons:
+      - name: Experience
+        url: experience/
+      - name: Projects
+        url: projects/
+      - name: About
+        url: data/
+      # - name: Newsletter
+      #   url: https://pmichaillat.substack.com
+      - name: Tags
+        url: tags/
+      # - name: Archive
+      #   url: archive/
+  socialIcons:
+    - name: CV
+      url: cv.pdf
+    - name: Email
+      url: mailto:k.roshan@iitg.ac.in
+    - name: Location
+      url: location/
+    - name: Kaggle
+      url: https://www.kaggle.com/roshan81
+    # - name: Google Scholar
+    #   url: https://scholar.google.com/
+    # - name: YouTube
+    #   url: https://www.youtube.com/
+    - name: GitHub
+      url: https://github.com/Roshan818
+    - name: LinkedIN
+      url: https://www.linkedin.com/in/roshan-kumar-01/
+    - name: Twitter
+      url: https://twitter.com/Roshan_kumar81
+
+  assets:
+    disableHLJS: true
+    disableScrollBarStyle: true
+  cover:
+    hiddenInList: false
+    hiddenInSingle: true
+  label:
+    text: "Roshan Kumar"
+    icon: favicon.ico
+    iconHeight: 18
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    guessSyntax: true
+    style: autumn
+  tableOfContents:
+    endLevel: 2
+    ordered: false
+    startLevel: 2

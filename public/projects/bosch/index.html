@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Bosch Age and Gender Detection from low quality CCTV footage | Roshan Kumar</title>
+<meta name="keywords" content="yolov5, SWIN Transformer, SAHI, ByteTracker, SwinIR, Coral">
+<meta name="description" content="This graduate course presents things.">
+<meta name="author" content="Roshan Kumar">
+<link rel="canonical" href="https://roshan818.github.io/projects/bosch/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a1177e92fe8da934fce275ec2b6e2b36321fcaebc248ca2e50bc7e4898c7d136.css" integrity="sha256-oRd&#43;kv6NqTT84nXsK24rNjIfyuvCSMouULx&#43;SJjH0TY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://roshan818.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://roshan818.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://roshan818.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://roshan818.github.io/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Bosch Age and Gender Detection from low quality CCTV footage" />
+<meta property="og:description" content="This graduate course presents things." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://roshan818.github.io/projects/bosch/" />
+<meta property="og:image" content="https://roshan818.github.io/Pipeline.png" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2022-03-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-01T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://roshan818.github.io/Pipeline.png" />
+<meta name="twitter:title" content="Bosch Age and Gender Detection from low quality CCTV footage"/>
+<meta name="twitter:description" content="This graduate course presents things."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Courses",
+      "item": "https://roshan818.github.io/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bosch Age and Gender Detection from low quality CCTV footage",
+      "item": "https://roshan818.github.io/projects/bosch/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bosch Age and Gender Detection from low quality CCTV footage",
+  "name": "Bosch Age and Gender Detection from low quality CCTV footage",
+  "description": "This graduate course presents things.",
+  "keywords": [
+    "yolov5", "SWIN Transformer", "SAHI", "ByteTracker", "SwinIR", "Coral"
+  ],
+  "articleBody": "Age \u0026 Gender Detection through low quality CCTV footage The task of this project is to estimate people’s age and gender form a surveillance video.\nDownload Presentation slides\rCode\rUser Manual\rObjectives The task appears simple but there are number of issues that must be taken into consideration inorder to develop an efficient system. Through this system we aim to achieve the following objectives:\nThe system must use maximum information. It must use both face and body as well as information from all the frames inorder to estimate the age and gender. The system must have a good FPS rate so that it could be used in real time. The results must be usable and interpretable. Methodology Following approach was used to build the desired system.\nObject Detection: The first task was to detect humans in the indiviual frame. YOLO was used for this purpose. It is the SOTA algorithm used for multi-object detection task which gives high accuracy even when applied in real-time on videos. Tracker: After detecting the person in a frame it is necessary to track that person throughout the frame. Byte Tracker was used for this purpose. It is the SOTA algorithm for multi-object tracking. Upscaling: Surveillance video usually have a low quality making it difficult to identify the person’s face. To overcome this issue upscaling of face and body images extracted from the video was needed. SwinIR was used for this purpose. This task can be skipped to increase the fps of the system. Models: SWIN Transformer was used as a backbone to predict both age and gender of a person. The diagram of the backbone is given below. Dataset: Details of the dataset that were used to train the model are given below Inference: To improve predictions, we applied two techniques at the time of inference: To get the gender information accross frames, we took the mode of the gender predictions from all the frames, as our final output To get better age windows, we dynamically allocated the age windows, based on the confidence of the prediction of Coral Layer Pipeline User Guide Setting Up\nconda create -f environment.yml conda activate ByteTrack # On Linux pip install cython pip install cython-bbox # On Windows(not-recommended) pip install cython pip install -e git+https://github.com/samson-wang/cython_bbox.git#egg=cython-bbox # if you face an error in lap pip install conda install -c conda-forge lap Inference Script\npython pipeline.py #or python pipeline.py !csv outputs are saved with the same name as image/video name in ./outputs Required Arguments\n/ Supported Formats * For video: .aGi .mp4 .webm .mkG .moF * For image: .jpeg .jpg .png .gif Options\n--save : Save the annotated video/image in output directory, i.e. outputs\n--display : View the annotated Gideo/image in real-time\n--hrvid : Apply upscaling on detected faces (only for video input)\nExample Usages\npythonpipeline.py demo_images/sample.jpg demo_images/sample.jpg --display # displays annotated image in opencv window demo_vids/video.mp4 --save # saves annotated video in ./outputs demo_Gids/video.mp4 --display --hrvid # applies upscaling and displays Results To build an efficient system we have trained the datasets on various models. Models and it’s performance are given below.\nFrom the table it is visible that Multi-Head Swin + Coral(trained on the outputs of SwinIR) outperformed other models\n",
+  "wordCount" : "534",
+  "inLanguage": "en",
+  "image":"https://roshan818.github.io/Pipeline.png","datePublished": "2022-03-01T00:00:00Z",
+  "dateModified": "2022-03-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Roshan Kumar"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://roshan818.github.io/projects/bosch/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Roshan Kumar",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://roshan818.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class=" dark" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://roshan818.github.io/" accesskey="h" title="Roshan Kumar">
+             
+                <img src="https://roshan818.github.io/favicon.ico" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Roshan Kumar</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://roshan818.github.io/experience/" title="Experience">
+                    <span>Experience</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://roshan818.github.io/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://roshan818.github.io/data/" title="About Me">
+                    <span>About Me</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Bosch Age and Gender Detection from low quality CCTV footage
+    </h1>
+    <div class="post-meta"><span title='2022-03-01 00:00:00 +0000 UTC'>March 2022</span>&nbsp;&middot;&nbsp;Roshan Kumar
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#age--gender-detection-through-low-quality-cctv-footage">Age &amp; Gender Detection through low quality CCTV footage</a></li>
+    <li><a href="#objectives">Objectives</a></li>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#pipeline">Pipeline</a></li>
+    <li><a href="#user-guide">User Guide</a></li>
+    <li><a href="#results">Results</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="age--gender-detection-through-low-quality-cctv-footage">Age &amp; Gender Detection through low quality CCTV footage<a hidden class="anchor" aria-hidden="true" href="#age--gender-detection-through-low-quality-cctv-footage">#</a></h2>
+<p>The task of this project is to estimate people&rsquo;s age and gender form a surveillance video.</p>
+<h5 id="download">Download<a hidden class="anchor" aria-hidden="true" href="#download">#</a></h5>
+<ul>
+<li><a href="MP_BO_T11.pdf">Presentation slides</a>
+</li>
+<li><a href="https://github.com/Roshan818/Age_and_Gender_Detection_through_CCTV_Videos" target="_blank">Code</a>
+</li>
+<li><a href="MP_BO_T11_UM.pdf">User Manual</a>
+</li>
+</ul>
+<hr>
+<h2 id="objectives">Objectives<a hidden class="anchor" aria-hidden="true" href="#objectives">#</a></h2>
+<p>The task appears simple but there are number of issues that must be taken into consideration inorder to develop an efficient system. Through this system we aim to achieve the following objectives:</p>
+<ul>
+<li>The system must use maximum information. It must use both face and body as well as information from all the frames inorder to estimate the age and gender.</li>
+<li>The system must have a good FPS rate so that it could be used in real time.</li>
+<li>The results must be usable and interpretable.</li>
+</ul>
+<hr>
+<h2 id="methodology">Methodology<a hidden class="anchor" aria-hidden="true" href="#methodology">#</a></h2>
+<p>Following approach was used to build the desired system.</p>
+<ul>
+<li><strong>Object Detection</strong>: The first task was to detect humans in the indiviual frame. YOLO was used for this purpose. It is the SOTA algorithm used for multi-object detection task which gives high accuracy even when applied in real-time on videos.</li>
+<li><strong>Tracker</strong>: After detecting the person in a frame it is necessary to track that person throughout the frame. Byte Tracker was used for this purpose. It is the SOTA algorithm for multi-object tracking.</li>
+<li><strong>Upscaling</strong>: Surveillance video usually have a low quality making it difficult to identify the person&rsquo;s face. To overcome this issue upscaling of face and body images extracted from the video was needed. SwinIR was used for this purpose. This task can be skipped to increase the fps of the system.</li>
+<li><strong>Models</strong>: SWIN Transformer was used as a backbone to predict both age and gender of a person. The diagram of the backbone is given below.</li>
+</ul>
+<p><img loading="lazy" src="flow_dia.png" alt="Flow_dia_model"  />
+</p>
+<ul>
+<li><strong>Dataset</strong>: Details of the dataset that were used to train the model are given below</li>
+</ul>
+<p><img loading="lazy" src="dataset_tab.png" alt="Dataset_Tabel"  />
+</p>
+<ul>
+<li><strong>Inference</strong>: To improve predictions, we applied two techniques at the time of inference:</li>
+</ul>
+<ol>
+<li>To get the gender information accross frames, we took the mode of the gender predictions from all the frames, as our final output</li>
+<li>To get better age windows, we dynamically allocated the age windows, based on the confidence of the prediction of Coral Layer</li>
+</ol>
+<hr>
+<h2 id="pipeline">Pipeline<a hidden class="anchor" aria-hidden="true" href="#pipeline">#</a></h2>
+<p><img loading="lazy" src="Pipeline.png" alt="Image_Pipeline"  />
+</p>
+<hr>
+<h2 id="user-guide">User Guide<a hidden class="anchor" aria-hidden="true" href="#user-guide">#</a></h2>
+<p><strong>Setting Up</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>conda create -f environment.yml
+</span></span><span style="display:flex;"><span>conda activate ByteTrack
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># On Linux
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pip install cython
+</span></span><span style="display:flex;"><span>pip install cython-bbox
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># On Windows(not-recommended)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pip install cython
+</span></span><span style="display:flex;"><span>pip install -e git+https://github.com/samson-wang/cython_bbox.git#egg=cython-bbox
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># if you face an error in lap pip install
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>conda install -c conda-forge lap
+</span></span></code></pre></div><p><strong>Inference Script</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>python pipeline.py &lt;video_path&gt;
+</span></span><span style="display:flex;"><span>#or
+</span></span><span style="display:flex;"><span>python pipeline.py &lt;image_path&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>!csv outputs are saved with the same name as image/video name in ./outputs
+</span></span></code></pre></div><p><strong>Required Arguments</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;video_path&gt;/&lt;image_path&gt;
+</span></span><span style="display:flex;"><span>Supported Formats
+</span></span><span style="display:flex;"><span>* For video: .aGi .mp4 .webm .mkG .moF
+</span></span><span style="display:flex;"><span>* For image: .jpeg .jpg .png .gif
+</span></span></code></pre></div><p><strong>Options</strong></p>
+<p><code>--save </code> : Save the annotated video/image in output directory, i.e. outputs</p>
+<p><code>--display</code> : View the annotated Gideo/image in real-time</p>
+<p><code>--hrvid</code> : Apply upscaling on detected faces (only for video input)</p>
+<p><strong>Example Usages</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>pythonpipeline.py demo_images/sample.jpg
+</span></span><span style="display:flex;"><span>demo_images/sample.jpg --display # displays annotated image in opencv window
+</span></span><span style="display:flex;"><span>demo_vids/video.mp4 --save # saves annotated video in ./outputs
+</span></span><span style="display:flex;"><span>demo_Gids/video.mp4 --display --hrvid # applies upscaling and displays
+</span></span></code></pre></div><hr>
+<h2 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h2>
+<p>To build an efficient system we have trained the datasets on various models. Models and it&rsquo;s performance are given below.</p>
+<p><img loading="lazy" src="model_tab.png" alt="Model_Tabel"  />
+</p>
+<p>From the table it is visible that <strong>Multi-Head Swin + Coral(trained on the outputs of SwinIR)</strong> outperformed other models</p>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://roshan818.github.io/tags/yolov5/">yolov5</a></li>
+      <li><a href="https://roshan818.github.io/tags/swin-transformer/">SWIN Transformer</a></li>
+      <li><a href="https://roshan818.github.io/tags/sahi/">SAHI</a></li>
+      <li><a href="https://roshan818.github.io/tags/bytetracker/">ByteTracker</a></li>
+      <li><a href="https://roshan818.github.io/tags/swinir/">SwinIR</a></li>
+      <li><a href="https://roshan818.github.io/tags/coral/">Coral</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2023 Roshan Kumar
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SAHI on Roshan Kumar</title>
+    <link>https://roshan818.github.io/tags/sahi/</link>
+    <description>Recent content in SAHI on Roshan Kumar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://roshan818.github.io/tags/sahi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bosch Age and Gender Detection from low quality CCTV footage</title>
+      <link>https://roshan818.github.io/projects/bosch/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/projects/bosch/</guid>
+      <description>This graduate course presents things.</description>
+    </item>
+    
+  </channel>
+</rss>

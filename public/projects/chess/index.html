@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Chess Engine Overview | Roshan Kumar</title>
+<meta name="keywords" content="NegaMax, Min-Max">
+<meta name="description" content="AI-based Chess Engine using traditional algorithms.">
+<meta name="author" content="Roshan Kumar">
+<link rel="canonical" href="https://roshan818.github.io/projects/chess/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a1177e92fe8da934fce275ec2b6e2b36321fcaebc248ca2e50bc7e4898c7d136.css" integrity="sha256-oRd&#43;kv6NqTT84nXsK24rNjIfyuvCSMouULx&#43;SJjH0TY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://roshan818.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://roshan818.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://roshan818.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://roshan818.github.io/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Chess Engine Overview" />
+<meta property="og:description" content="AI-based Chess Engine using traditional algorithms." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://roshan818.github.io/projects/chess/" />
+<meta property="og:image" content="https://roshan818.github.io/Pipeline.png" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2023-08-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-01T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://roshan818.github.io/Pipeline.png" />
+<meta name="twitter:title" content="Chess Engine Overview"/>
+<meta name="twitter:description" content="AI-based Chess Engine using traditional algorithms."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Courses",
+      "item": "https://roshan818.github.io/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Chess Engine Overview",
+      "item": "https://roshan818.github.io/projects/chess/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Chess Engine Overview",
+  "name": "Chess Engine Overview",
+  "description": "AI-based Chess Engine using traditional algorithms.",
+  "keywords": [
+    "NegaMax", "Min-Max"
+  ],
+  "articleBody": "Chess Engine Code\rTraditional chess engines leverage classical artificial intelligence techniques, employing algorithms such as Minimax, Negamax, and Alpha-Beta Pruning. These engines operate on a deterministic, exhaustive search approach, utilizing a predefined heuristic for position evaluation, exploring the game tree to a specified depth, and making decisions based on minimizing potential losses and maximizing gains. While highly effective and well-established, these engines differ fundamentally from neural network-based engines like ChessCoach, which incorporate machine learning for complex, non-linear evaluations.\nChess Engine Implementation Board Representation: The engine represents the board as a 2D array of integers, with each integer representing a piece. The engine uses the following integer values to represent pieces:\nWhite Pieces: 1-6 Black Pieces: -1 to -6 Empty Squares: 0 Move Generation: The engine generates moves for a given position by iterating through the board and generating moves for each piece. It uses the following functions to generate moves for each piece:\nMove Validation: The engine validates moves by generating all possible moves for the current position and checking if the move is in the list of possible moves.\nPosition Evaluation: It will check for threats, pins and checks.\nMove Selection: We have made options to select from the following algorithms: a. Random b. Minimax c. Negamax d. Alpha-Beta Pruning\nChess Engine Evaluation Minimax Algorithm: The Minimax algorithm, a decision-making strategy in two-player games like chess, aims to minimize potential losses for a worst-case scenario while maximizing gains. The engine explores a game tree, considering all possible moves for both players up to a certain depth.\nEvaluation Function: At the leaves of the game tree, an evaluation function assesses the desirability of a position, assigning a numerical value indicating its favorability for the side to move.\nDepth Search: The engine conducts a depth-first search, reaching a specified depth in the game tree before evaluating positions. The search is exhaustive, considering all possible move sequences up to the specified depth.\nBacktracking: After evaluating a position, the engine backtracks to the previous position and explores the next possible move. It repeats this process until it reaches the specified depth.\nNegamax Algorithm: Negamax optimizes Minimax, simplifying implementation and reducing code complexity. It capitalizes on the fact that in two-player zero-sum games like chess, the evaluation of a position for one player is the negation of the evaluation for the other.\nSimplified Minimax: Negamax combines the roles of maximizing and minimizing players into a single recursive function, reducing redundancy and improving code conciseness. Alpha-Beta Pruning: Alpha-Beta Pruning optimizes Minimax and Negamax by eliminating the evaluation of irrelevant branches in the game tree.\nBranch Elimination: As the engine traverses the game tree, it maintains alpha and beta values, representing the minimum score for the maximizing player and the maximum score for the minimizing player. If a branch’s score won’t affect the final result, it prunes that branch, saving computational resources.\nEfficiency Improvement: Alpha-Beta Pruning significantly reduces the number of nodes evaluated, enabling deeper exploration of the game tree within the same time constraints.\n",
+  "wordCount" : "499",
+  "inLanguage": "en",
+  "image":"https://roshan818.github.io/Pipeline.png","datePublished": "2023-08-01T00:00:00Z",
+  "dateModified": "2023-08-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Roshan Kumar"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://roshan818.github.io/projects/chess/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Roshan Kumar",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://roshan818.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class=" dark" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://roshan818.github.io/" accesskey="h" title="Roshan Kumar">
+             
+                <img src="https://roshan818.github.io/favicon.ico" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Roshan Kumar</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://roshan818.github.io/experience/" title="Experience">
+                    <span>Experience</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://roshan818.github.io/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://roshan818.github.io/data/" title="About Me">
+                    <span>About Me</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Chess Engine Overview
+    </h1>
+    <div class="post-meta"><span title='2023-08-01 00:00:00 +0000 UTC'>August 2023</span>&nbsp;&middot;&nbsp;Roshan Kumar
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#chess-engine">Chess Engine</a></li>
+    <li><a href="#chess-engine-implementation">Chess Engine Implementation</a></li>
+    <li><a href="#chess-engine-evaluation">Chess Engine Evaluation</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="chess-engine">Chess Engine<a hidden class="anchor" aria-hidden="true" href="#chess-engine">#</a></h2>
+<!-- - [Presentation slides](MP_BO_T11.pdf) -->
+<blockquote>
+<p><a href="https://github.com/Roshan818/ChessEngine" target="_blank">Code</a>
+</p>
+</blockquote>
+<hr>
+<!-- - [User Manual](MP_BO_T11_UM.pdf) -->
+<p><img loading="lazy" src="figure1.png" alt="Chess Engine Pipeline"  />
+</p>
+<p>Traditional chess engines leverage classical artificial intelligence techniques, employing algorithms such as Minimax, Negamax, and Alpha-Beta Pruning. These engines operate on a deterministic, exhaustive search approach, utilizing a predefined heuristic for position evaluation, exploring the game tree to a specified depth, and making decisions based on minimizing potential losses and maximizing gains. While highly effective and well-established, these engines differ fundamentally from neural network-based engines like ChessCoach, which incorporate machine learning for complex, non-linear evaluations.</p>
+<hr>
+<h2 id="chess-engine-implementation">Chess Engine Implementation<a hidden class="anchor" aria-hidden="true" href="#chess-engine-implementation">#</a></h2>
+<ol>
+<li>
+<p><strong>Board Representation:</strong>
+<img loading="lazy" src="gamestate.png" alt="Board Representation"  />
+
+The engine represents the board as a 2D array of integers, with each integer representing a piece. The engine uses the following integer values to represent pieces:</p>
+<ul>
+<li><strong>White Pieces:</strong> 1-6</li>
+<li><strong>Black Pieces:</strong> -1 to -6</li>
+<li><strong>Empty Squares:</strong> 0</li>
+</ul>
+</li>
+<li>
+<p><strong>Move Generation:</strong>
+<img loading="lazy" src="chess_moves.jpg" alt="Move Generation"  />
+
+The engine generates moves for a given position by iterating through the board and generating moves for each piece. It uses the following functions to generate moves for each piece:</p>
+<!-- ```python
+# =========================================================== Species Moves ============================================================
+
+ # -------------------------------------------------------- Pawn Moves --------------------------------------------------------
+
+ def getPawnMoves(self, r, c, moves):
+     # Get all pawn moves for the pawn located at row, col and add these moves to the list
+     piecePinned = False
+     pinDirection = ()
+
+     for i in range(len(self.pins) - 1, -1, -1):
+         if self.pins[i][0] == r and self.pins[i][1] == c:
+             piecePinned = True
+             pinDirection = (self.pins[i][2], self.pins[i][3])
+             self.pins.remove(self.pins[i])
+             break
+
+     if self.whiteToMove:
+         moveAmount = -1
+         startRow = 6
+         backRow = 0
+         enemyColor = 'b'
+         kingRow, kingCol = self.whiteKingLocation
+
+     else:
+         moveAmount = 1
+         startRow = 1
+         backRow = 7
+         enemyColor = 'w'
+         kingRow, kingCol = self.blackKingLocation
+
+     pawnPromotion = False
+
+     if self.board[r + moveAmount][c] == '--':  # 1 square move
+         if not piecePinned or pinDirection == (moveAmount, 0):
+             if r + moveAmount == backRow:  # if piece gets to back rank then it is a pawn promotion
+                 pawnPromotion = True
+             moves.append(Move((r, c), (r + moveAmount, c),
+                          self.board, pawnPromotion=pawnPromotion))
+
+             # 2 square moves
+             if r == startRow and self.board[r + 2 * moveAmount][c] == '--':
+                 moves.append(
+                     Move((r, c), (r + 2 * moveAmount, c), self.board))
+
+     if c - 1 >= 0:  # Capture to left
+         if not piecePinned or pinDirection == (moveAmount, -1):
+             if self.board[r + moveAmount][c - 1][0] == enemyColor:
+                 if r + moveAmount == backRow:  # if piece gets to back rank then it is a pawn promotion
+                     pawnPromotion = True
+                 moves.append(Move((r, c), (r + moveAmount, c - 1),
+                              self.board, pawnPromotion=pawnPromotion))
+
+             if (r + moveAmount, c - 1) == self.enpassantPossible:
+                 attackingPiece = blockingPiece = False
+                 if kingRow == r:  # Solving the weird enpassant bug
+                     if kingCol < c:  # king is on the left of the pawn
+                         # inside range between the king and the pawn; outside range between pawn border
+                         insideRange = range(kingCol + 1, c - 1)
+                         outsideRange = range(c + 1, 8)
+                     else:  # King right of pawn
+                         insideRange = range(kingCol - 1, c, -1)
+                         outsideRange = range(c - 2, -1, -1)
+
+                     for i in insideRange:
+                         # Some other piece beside enpassant pawn blocks
+                         if self.board[r][i] != '--':
+                             blockingPiece = True
+                     for i in outsideRange:
+                         square = self.board[r][i]
+                         # Attacking Piece
+                         if square[0] == enemyColor and (square[1] == 'R' or square[1] == 'Q'):
+                             attackingPiece = True
+                         elif square != '--':
+                             blockingPiece = True
+                 if not attackingPiece or blockingPiece:
+                     moves.append(
+                         Move((r, c), (r + moveAmount, c - 1), self.board, enPassant=True))
+
+     if c + 1 <= 7:  # Capture to right
+         if not piecePinned or pinDirection == (moveAmount, 1):
+             if self.board[r + moveAmount][c + 1][0] == enemyColor:
+                 if r + moveAmount == backRow:  # if piece gets to back rank then it is a pawn promotion
+                     pawnPromotion = True
+                 moves.append(Move((r, c), (r + moveAmount, c + 1),
+                              self.board, pawnPromotion=pawnPromotion))
+
+             if (r + moveAmount, c + 1) == self.enpassantPossible:
+                 attackingPiece = blockingPiece = False
+                 if kingRow == r:  # Solving the weird enpassant bug
+                     if kingCol < c:  # king is on the left of the pawn
+                         # inside range between the king and the pawn; outside range between pawn border
+                         insideRange = range(kingCol + 1, c)
+                         outsideRange = range(c + 2, 8)
+                     else:  # King right of pawn
+                         insideRange = range(kingCol - 1, c + 1, -1)
+                         outsideRange = range(c - 1, -1, -1)
+
+                     for i in insideRange:
+                         # Some other piece beside enpassant pawn blocks
+                         if self.board[r][i] != '--':
+                             blockingPiece = True
+                     for i in outsideRange:
+                         square = self.board[r][i]
+                         # Attacking Piece
+                         if square[0] == enemyColor and (square[1] == 'R' or square[1] == 'Q'):
+                             attackingPiece = True
+                         elif square != '--':
+                             blockingPiece = True
+                 if not attackingPiece or blockingPiece:
+                     moves.append(
+                         Move((r, c), (r + moveAmount, c + 1), self.board, enPassant=True))
+
+ # -------------------------------------------------------- Rook Moves --------------------------------------------------------
+
+ def getRookMoves(self, r, c, moves):
+     # Get all Rook moves for the Rook located at row, col and add these moves to the list
+     piecePinned = False
+     pinDirection = ()
+
+     for i in range(len(self.pins) - 1, -1, -1):
+         if self.pins[i][0] == r and self.pins[i][1] == c:
+             piecePinned = True
+             pinDirection = (self.pins[i][2], self.pins[i][3])
+             if self.board[r][c][1] != 'Q':  # Cant remove queen from pin on rook moves,
+                 # only remove it on bishop moves
+                 self.pins.remove(self.pins[i])
+             break
+
+     # Up , Left, Down, Right
+     directions = ((-1, 0), (0, -1), (1, 0), (0, 1))
+     enemyColor = 'b' if self.whiteToMove else 'w'
+     for d in directions:
+         for i in range(1, 8):
+             endRow = r + d[0] * i
+             endCol = c + d[1] * i
+             if 0 <= endRow < 8 and 0 <= endCol < 8:  # On board
+                 if not piecePinned or pinDirection == d or pinDirection == (-d[0], -d[1]):
+                     endPiece = self.board[endRow][endCol]
+                     if endPiece == '--':  # Empty space valid
+                         moves.append(
+                             Move((r, c), (endRow, endCol), self.board))
+                     elif endPiece[0] == enemyColor:  # Enemy piece valid
+                         moves.append(
+                             Move((r, c), (endRow, endCol), self.board))
+                         break
+
+                     else:  # Friendly piece invalid
+                         break
+             else:  # Off board
+                 break
+
+ # -------------------------------------------------------- Bishop Moves --------------------------------------------------------
+ def getBishopMoves(self, r, c, moves):
+     # Get all Bishop moves for the Bishop located at row, col and add these moves to the list
+     piecePinned = False
+     pinDirection = ()
+
+     for i in range(len(self.pins) - 1, -1, -1):
+         if self.pins[i][0] == r and self.pins[i][1] == c:
+             piecePinned = True
+             pinDirection = (self.pins[i][2], self.pins[i][3])
+             self.pins.remove(self.pins[i])
+             break
+
+     directions = ((-1, -1), (1, 1), (1, -1), (-1, 1))  # 4 diaganols
+     enemyColor = 'b' if self.whiteToMove else 'w'
+     for d in directions:
+         for i in range(1, 8):  # Can move maximumly 7 squares
+             endRow = r + d[0] * i
+             endCol = c + d[1] * i
+             if 0 <= endRow < 8 and 0 <= endCol < 8:  # Is the end-point on the board?
+                 if not piecePinned or pinDirection == d or pinDirection == (-d[0], -d[1]):
+                     endPiece = self.board[endRow][endCol]
+                     if endPiece == '--':  # Empty Space Valid
+                         moves.append(
+                             Move((r, c), (endRow, endCol), self.board))
+                     elif endPiece[0] == enemyColor:  # Enemy color Valid
+                         moves.append(
+                             Move((r, c), (endRow, endCol), self.board))
+                         break
+                     else:  # Friendly Piece Invalid
+                         break
+             else:  # Off Board
+                 break
+
+ # -------------------------------------------------------- Knight Moves --------------------------------------------------------
+ def getKnightMoves(self, r, c, moves):
+     # Get all Knight moves for the Knight located at row, col and add these moves to the list
+     piecePinned = False
+     for i in range(len(self.pins) - 1, -1, -1):
+         if self.pins[i][0] == r and self.pins[i][1] == c:
+             piecePinned = True
+             self.pins.remove(self.pins[i])
+             break
+
+     knightMoves = ((-2, -1), (-2, 1), (2, -1), (2, 1),
+                    (1, 2), (1, -2), (-1, 2), (-1, -2))
+     allyColor = 'w' if self.whiteToMove else 'b'
+     for m in knightMoves:
+         endRow = r + m[0]
+         endCol = c + m[1]
+         if 0 <= endRow < 8 and 0 <= endCol < 8:
+             if not piecePinned:
+                 endPiece = self.board[endRow][endCol]
+                 # Not an ally piece (empty or enemy piece)
+                 if endPiece[0] != allyColor:
+                     moves.append(
+                         Move((r, c), (endRow, endCol), self.board))
+
+ # -------------------------------------------------------- King Moves --------------------------------------------------------
+ def getKingMoves(self, r, c, moves):
+     # Get all King moves for the King located at row, col and add these moves to the list
+     kingMoves = ((0, 1), (0, -1), (1, 0), (-1, 0),
+                  (-1, 1), (-1, -1), (1, 1), (1, -1))
+     allyColor = 'w' if self.whiteToMove else 'b'
+     for i in range(8):
+         endRow = r + kingMoves[i][0]
+         endCol = c + kingMoves[i][1]
+         if 0 <= endRow < 8 and 0 <= endCol < 8:  # Target place on the board
+             endPiece = self.board[endRow][endCol]
+
+             if endPiece[0] != allyColor:    # Target place either empty or enemy on it
+                 # Place king on target square and check for checks
+                 if allyColor == 'w':
+                     self.whiteKingLocation = (endRow, endCol)
+                 else:
+                     self.blackKingLocation = (endRow, endCol)
+                 inCheck, pins, checks, ally = self.checkForPinsAndChecks()
+
+                 if not inCheck:
+                     moves.append(
+                         Move((r, c), (endRow, endCol), self.board))
+
+                 # Place king back on its own location
+                 if allyColor == 'w':
+                     self.whiteKingLocation = (r, c)
+                 else:
+                     self.blackKingLocation = (r, c)
+
+ # -------------------------------------------------------- Queen Moves --------------------------------------------------------
+ def getQueenMoves(self, r, c, moves):
+     # Get all Queen moves for the Queen located at row, col and add these moves to the list
+     # Queen moves is the combination of bishop & rook
+     self.getRookMoves(r, c, moves)
+     self.getBishopMoves(r, c, moves)
+
+ # ======================================================= Castle Moves ===============================================================
+ # Generate all valid castle moves for the king at (r,c) and add them to the list of moves
+
+ def getCastleMoves(self, r, c, moves, allyColor):
+     if self.squareUnderAttack(r, c):
+         return  # Can't castle while we are in check!
+     if (self.whiteToMove and self.currentCastlingRight.wks) or (not self.whiteToMove and self.currentCastlingRight.bks):
+         self.getKingsideCastleMoves(r, c, moves, allyColor)
+
+     if (self.whiteToMove and self.currentCastlingRight.wqs) or (not self.whiteToMove and self.currentCastlingRight.bqs):
+         self.getQueensideCastleMoves(r, c, moves, allyColor)
+
+ def getKingsideCastleMoves(self, r, c, moves, allyColor):
+     if self.board[r][c + 1] == '--' and self.board[r][c + 2] == '--':
+         if not self.squareUnderAttack(r, c + 1) and not self.squareUnderAttack(r, c + 2):
+             moves.append(
+                 Move((r, c), (r, c + 2), self.board, isCastleMove=True))
+         pass
+
+ def getQueensideCastleMoves(self, r, c, moves, allyColor):
+     if self.board[r][c - 1] == '--' and self.board[r][c - 2] == '--' and self.board[r][c - 3] == '--':
+         if not self.squareUnderAttack(r, c - 1) and not self.squareUnderAttack(r, c - 2):
+             moves.append(
+                 Move((r, c), (r, c - 2), self.board, isCastleMove=True))
+``` -->
+</li>
+<li>
+<p><strong>Move Validation:</strong>
+The engine validates moves by generating all possible moves for the current position and checking if the move is in the list of possible moves.</p>
+<!-- ```python
+def getValidMoves(self):
+     # All moves considering checks
+     moves = []
+     self.inCheck, self.pins, self.checks, ally = self.checkForPinsAndChecks()
+     if self.whiteToMove:
+         kingRow = self.whiteKingLocation[0]
+         kingCol = self.whiteKingLocation[1]
+     else:
+         kingRow = self.blackKingLocation[0]
+         kingCol = self.blackKingLocation[1]
+
+     if self.inCheck:
+         if len(self.checks) == 1:  # Only 1 check ; block check or move king
+             moves = self.getAllPossibleMoves()
+
+             # To block a check you must move a piece in one of the squares
+             # between the enemy and the king
+             check = self.checks[0]  # Check info
+             checkRow = check[0]
+             checkCol = check[1]
+             # Enemy piece causing the check
+             pieceChecking = self.board[checkRow][checkCol]
+             # If the checking enemy is knight the only valid move is capturing the knight
+             if pieceChecking[1] == 'N':
+                 validSquares = [(checkRow, checkCol)]
+             else:
+                 validSquares = []
+                 for i in range(1, 8):
+                     # Check 2 and 3 are the check directions
+                     validSquare = (
+                         kingRow + check[2] * i, kingCol + check[3] * i)
+                     validSquares.append(validSquare)
+                     # Once you get to the enemy piece checking
+                     if validSquare[0] == checkRow and validSquare[1] == checkCol:
+                         break
+
+             # Get rid of any moves tht dont block check. And/or move the king
+             for i in range(len(moves) - 1, -1, -1):
+                 # Move doesnt move king so it must block or capture
+                 if moves[i].pieceMoved[1] != 'K':
+                     # The move wont block check or capture the checking piece enemy
+                     if not (moves[i].endRow, moves[i].endCol) in validSquares:
+                         moves.remove(moves[i])
+
+         else:  # Double Checks! King MUST move.
+             self.getKingMoves(kingRow, kingCol, moves)
+
+     else:  # Not in check, so all moves are fine!
+         moves = self.getAllPossibleMoves()
+
+     # ------------- Check / Stale Mate -------------------------------
+
+     if len(moves) == 0:  # Either checkmate or stalemate
+         if self.inCheck:
+             self.checkmate = True
+         else:
+             self.stalemate = True
+     else:
+         self.checkmate = False
+         self.stalemate = False
+
+     # ------------- Get Castle Moves ---------------------------------
+     self.getCastleMoves(kingRow, kingCol, moves,
+                         'w' if self.whiteToMove else 'b')
+
+     return moves
+ ``` -->
+</li>
+<li>
+<p><strong>Position Evaluation:</strong>
+It will check for threats, pins and checks.</p>
+</li>
+<li>
+<p><strong>Move Selection:</strong>
+We have made options to select from the following algorithms:
+a. Random
+b. Minimax
+c. Negamax
+d. Alpha-Beta Pruning</p>
+</li>
+</ol>
+<hr>
+<h2 id="chess-engine-evaluation">Chess Engine Evaluation<a hidden class="anchor" aria-hidden="true" href="#chess-engine-evaluation">#</a></h2>
+<ol>
+<li>
+<p><strong>Minimax Algorithm:</strong>
+<img loading="lazy" src="chess_minimax.png" alt="Chess Mini-Max"  />
+
+The Minimax algorithm, a decision-making strategy in two-player games like chess, aims to minimize potential losses for a worst-case scenario while maximizing gains. The engine explores a game tree, considering all possible moves for both players up to a certain depth.</p>
+<ul>
+<li>
+<p><strong>Evaluation Function:</strong> At the leaves of the game tree, an evaluation function assesses the desirability of a position, assigning a numerical value indicating its favorability for the side to move.</p>
+</li>
+<li>
+<p><strong>Depth Search:</strong> The engine conducts a depth-first search, reaching a specified depth in the game tree before evaluating positions. The search is exhaustive, considering all possible move sequences up to the specified depth.</p>
+</li>
+<li>
+<p><strong>Backtracking:</strong> After evaluating a position, the engine backtracks to the previous position and explores the next possible move. It repeats this process until it reaches the specified depth.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Negamax Algorithm:</strong>
+<img loading="lazy" src="plminmax.gif" alt="Negamax"  />
+
+Negamax optimizes Minimax, simplifying implementation and reducing code complexity. It capitalizes on the fact that in two-player zero-sum games like chess, the evaluation of a position for one player is the negation of the evaluation for the other.</p>
+<ul>
+<li><strong>Simplified Minimax:</strong> Negamax combines the roles of maximizing and minimizing players into a single recursive function, reducing redundancy and improving code conciseness.</li>
+</ul>
+</li>
+<li>
+<p><strong>Alpha-Beta Pruning:</strong>
+<img loading="lazy" src="alpha-beta.jpg" alt="Alpha-Beta Pruning"  />
+
+Alpha-Beta Pruning optimizes Minimax and Negamax by eliminating the evaluation of irrelevant branches in the game tree.</p>
+<ul>
+<li>
+<p><strong>Branch Elimination:</strong> As the engine traverses the game tree, it maintains alpha and beta values, representing the minimum score for the maximizing player and the maximum score for the minimizing player. If a branch&rsquo;s score won&rsquo;t affect the final result, it prunes that branch, saving computational resources.</p>
+</li>
+<li>
+<p><strong>Efficiency Improvement:</strong> Alpha-Beta Pruning significantly reduces the number of nodes evaluated, enabling deeper exploration of the game tree within the same time constraints.</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://roshan818.github.io/tags/negamax/">NegaMax</a></li>
+      <li><a href="https://roshan818.github.io/tags/min-max/">Min-Max</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2023 Roshan Kumar
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

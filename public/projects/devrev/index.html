@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Devrev&#39;s Expert Answers in a Flash : Improving Domain-Specific QA | Roshan Kumar</title>
+<meta name="keywords" content="Domain Specific QA, Question Generation, NER Re-Ranking, GenQ, T5-Paraphraser, fastT5">
+<meta name="description" content="This undergraduate course presents many new things.">
+<meta name="author" content="Roshan Kumar">
+<link rel="canonical" href="https://roshan818.github.io/projects/devrev/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a1177e92fe8da934fce275ec2b6e2b36321fcaebc248ca2e50bc7e4898c7d136.css" integrity="sha256-oRd&#43;kv6NqTT84nXsK24rNjIfyuvCSMouULx&#43;SJjH0TY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://roshan818.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://roshan818.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://roshan818.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://roshan818.github.io/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Devrev&#39;s Expert Answers in a Flash : Improving Domain-Specific QA" />
+<meta property="og:description" content="This undergraduate course presents many new things." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://roshan818.github.io/projects/devrev/" />
+<meta property="og:image" content="https://roshan818.github.io/final-pipeline.jpg" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2023-02-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-01T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://roshan818.github.io/final-pipeline.jpg" />
+<meta name="twitter:title" content="Devrev&#39;s Expert Answers in a Flash : Improving Domain-Specific QA"/>
+<meta name="twitter:description" content="This undergraduate course presents many new things."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Courses",
+      "item": "https://roshan818.github.io/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Devrev's Expert Answers in a Flash : Improving Domain-Specific QA",
+      "item": "https://roshan818.github.io/projects/devrev/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Devrev's Expert Answers in a Flash : Improving Domain-Specific QA",
+  "name": "Devrev\u0027s Expert Answers in a Flash : Improving Domain-Specific QA",
+  "description": "This undergraduate course presents many new things.",
+  "keywords": [
+    "Domain Specific QA", "Question Generation", "NER Re-Ranking", "GenQ", "T5-Paraphraser", "fastT5"
+  ],
+  "articleBody": "Introduction Download Presentation\rMid-Evaluation Report\rReport\rCode\rThis is a solution for DevRev’s Problem Statement at the 11th Inter IIT TechMeet aiming to minimize the number of communication which reaches the support agent and let the system handle it initially while providing an automated response with some suggestions.\nGiven a query, we developed a system which provides a Knowledge Base article (KB article) to the given user query. For example, if the user comes up with a query about how payment API works, our system should be able to pull up a related API documentation which would be able to answer the query. And also highlight a part of the document which is the potential answer. Getting this done right for different distribution of documents makes it even more complex.\nWe optimize the pipeline for performance, latency, and resource usage. The availability of diverse knowledge bases makes this task challenging. We propose novel methods to handle FAQs, generate synthetic queries, model fine-tuning, retrieve candidate sentences for answer matching and improve runtime efficiency\nProblem Statement Task 1 Given a question and a set of paragraphs, predict if the question can be answered with the given paragraphs. If yes, return the paragraph that answers the question. Each question and paragraph is associated with a specific theme. This could be “Sports”, “English” or “Mathematics” etc. A question of a theme can be answered by one of the paragraphs in that theme.\nTask 2 For the given questions, also predict the exact answer from the predicted paragraph. Predict the start_index and the answer_text field for the given question. Note: Both the tasks will be marked individually. However, to perform better in Task 2, your model needs to perform better in Task 1.\nDataset The training data provided was a subset of SQuAD2.0 dataset. The dataset contains the following fields:\nQuestion - Question for which answer is to be found Theme - Name of the domain this question \u0026 paragraph belongs to. Paragraph - Paragraph from the mentioned theme which may contain the answer Answer_possible - If the answer is possible from the given paragraph Answer_text - Answers from the given paragraph Answer_start - Index position from where the answer starts Theme,Paragraph,Question,Answer_possible,Answer_text,Answer_start Beyoncé,\"Beyoncé Giselle Knowles-Carter (/biːˈjɒnseɪ/ bee-YON-say) (born September 4, 1981) is an American singer, songwriter, record producer and actress. Born and raised in Houston, Texas, she performed in various singing and dancing competitions as a child, and rose to fame in the late 1990s as lead singer of R\u0026B girl-group Destiny's Child. Managed by her father, Mathew Knowles, the group became one of the world's best-selling girl groups of all time. Their hiatus saw the release of Beyoncé's debut album, Dangerously in Love (2003), which established her as a solo artist worldwide, earned five Grammy Awards and featured the Billboard Hot 100 number-one singles \"\"Crazy in Love\"\" and \"\"Baby Boy\"\".\",When did Beyonce leave Destiny's Child and become a solo singer?,True,['2003'],[526] Military_history_of_the_United_States,\"In January 2002, the U.S. sent more than 1,200 troops (later raised to 2,000) to assist the Armed Forces of the Philippines in combating terrorist groups linked to al-Qaida, such as Abu Sayyaf, under Operation Enduring Freedom - Philippines. Operations have taken place mostly in the Sulu Archipelago, where terrorists and other groups are active. The majority of troops provide logistics. However, there are special forces troops that are training and assisting in combat operations against the terrorist groups.\",Terrorists in the Philippines were linked to what larger terrorist organization?,True,['al-Qaida'],[164] Steven_Spielberg,\"His next theatrical release in that same year was the World War II film Saving Private Ryan, about a group of U.S. soldiers led by Capt. Miller (Tom Hanks) sent to bring home a paratrooper whose three older brothers were killed in the same twenty-four hours, June 5–6, of the Normandy landing. The film was a huge box office success, grossing over $481 million worldwide and was the biggest film of the year at the North American box office (worldwide it made second place after Michael Bay's Armageddon). Spielberg won his second Academy Award for his direction. The film's graphic, realistic depiction of combat violence influenced later war films such as Black Hawk Down and Enemy at the Gates. The film was also the first major hit for DreamWorks, which co-produced the film with Paramount Pictures (as such, it was Spielberg's first release from the latter that was not part of the Indiana Jones series). Later, Spielberg and Tom Hanks produced a TV mini-series based on Stephen Ambrose's book Band of Brothers. The ten-part HBO mini-series follows Easy Company of the 101st Airborne Division's 506th Parachute Infantry Regiment. The series won a number of awards at the Golden Globes and the Emmys.\",Which studio produced Armageddon?,False,[],[] Religion_in_ancient_Rome,\"Lucan depicts Sextus Pompeius, the doomed son of Pompey the Great, as convinced \"\"the gods of heaven knew too little\"\" and awaiting the Battle of Pharsalus by consulting with the Thessalian witch Erichtho, who practices necromancy and inhabits deserted graves, feeding on rotting corpses. Erichtho, it is said, can arrest \"\"the rotation of the heavens and the flow of rivers\"\" and make \"\"austere old men blaze with illicit passions\"\". She and her clients are portrayed as undermining the natural order of gods, mankind and destiny. A female foreigner from Thessaly, notorious for witchcraft, Erichtho is the stereotypical witch of Latin literature, along with Horace's Canidia.\",How was Erichtho portrayed?,True,['stereotypical witch'],[602] Matter,\"The term \"\"matter\"\" is used throughout physics in a bewildering variety of contexts: for example, one refers to \"\"condensed matter physics\"\", \"\"elementary matter\"\", \"\"partonic\"\" matter, \"\"dark\"\" matter, \"\"anti\"\"-matter, \"\"strange\"\" matter, and \"\"nuclear\"\" matter. In discussions of matter and antimatter, normal matter has been referred to by Alfvén as koinomatter (Gk. common matter). It is fair to say that in physics, there is no broad consensus as to a general definition of matter, and the term \"\"matter\"\" usually is used in conjunction with a specifying modifier.\",What field of study has a variety of unusual contexts?,False,[],[] Our Approach Pipeline Overview Our final pipeline for the given task includes the following parts:\nPreviously Answered Questions Fuzzy match with paraphrased questions Sentence Retrieval Retrieval of Top K (dynamically chosen) sentences to form the context for the question-answering model. Question Answering Question-answering model inference on the retrieved context. Key Points Sentence Based Retrieval Question Generation using Transformers\rUnsupervised Training of Retrievers Using GenQ Generate queries for pre-existing but unlabeled passages: Creating (query, passage) pairs. Fine-tune a bi-encoder model using these (query, passage) pairs and Multiple Negatives Ranking (MNR) loss. Paraphrasing Questions Using T5-Transformer Generated paraphrases of the questions given in the data using T5 Paraphraser. Used Fuzzy Match Ratio to find out the similarity between incoming question and the paraphrased questions. Used fastT5\rlibrary to reduce the runtime. Contributors @SpyzzVVarun\r@amish1706\r@Nidhi15-02\r@Roshan818\r",
+  "wordCount" : "1117",
+  "inLanguage": "en",
+  "image":"https://roshan818.github.io/final-pipeline.jpg","datePublished": "2023-02-01T00:00:00Z",
+  "dateModified": "2023-02-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Roshan Kumar"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://roshan818.github.io/projects/devrev/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Roshan Kumar",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://roshan818.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class=" dark" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://roshan818.github.io/" accesskey="h" title="Roshan Kumar">
+             
+                <img src="https://roshan818.github.io/favicon.ico" alt="" aria-label="logo"
+                    height="18"
+                    width="18">Roshan Kumar</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://roshan818.github.io/experience/" title="Experience">
+                    <span>Experience</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://roshan818.github.io/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://roshan818.github.io/data/" title="About Me">
+                    <span>About Me</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Devrev&#39;s Expert Answers in a Flash : Improving Domain-Specific QA
+    </h1>
+    <div class="post-meta"><span title='2023-02-01 00:00:00 +0000 UTC'>February 2023</span>&nbsp;&middot;&nbsp;Roshan Kumar
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#problem-statement">Problem Statement</a></li>
+    <li><a href="#dataset">Dataset</a></li>
+    <li><a href="#our-approach">Our Approach</a></li>
+    <li><a href="#key-points">Key Points</a></li>
+    <li><a href="#contributors">Contributors</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<!-- DevRev’s Expert Answers in a Flash Improving Domain-Specific QA -->
+<img src="https://socialify.git.ci/siddharthkhincha/Inter-IIT-11-Devrev/image?description=1&font=KoHo&name=1&pattern=Solid&stargazers=1&theme=Dark">
+<h5 id="download">Download<a hidden class="anchor" aria-hidden="true" href="#download">#</a></h5>
+<!-- - [Presentation]() -->
+<ul>
+<li><a href="https://drive.google.com/file/d/1jEJq1m_YFdC7CdbWQ_yJ52bNffAkD7wQ/view?usp=sharing" target="_blank">Presentation</a>
+</li>
+<li><a href="Mid-Term-Report.pdf">Mid-Evaluation Report</a>
+</li>
+<li><a href="Final-Report.pdf">Report</a>
+</li>
+<li><a href="https://github.com/Roshan818/Inter-IIT-11-Devrev" target="_blank">Code</a>
+</li>
+</ul>
+<hr>
+<p>This is a solution for DevRev&rsquo;s Problem Statement at the <strong>11th Inter IIT TechMeet</strong> aiming to minimize the number of communication which reaches the support agent and let the system handle it initially while providing an automated response with some suggestions.</p>
+<p>Given a query, we developed a system which provides a Knowledge
+Base article (KB article) to the given user query. For example, if the user comes up with a query about how payment API works, our system should be able to pull up a related API documentation which would be able to answer the query. And also highlight a
+part of the document which is the potential answer. Getting this done right for different distribution of documents makes it even more complex.</p>
+<p>We optimize the pipeline for
+performance, latency, and resource usage. The
+availability of diverse knowledge bases makes this
+task challenging. We propose novel methods to
+handle FAQs, generate synthetic queries, model
+fine-tuning, retrieve candidate sentences for answer matching and improve runtime efficiency</p>
+<hr>
+<h2 id="problem-statement">Problem Statement<a hidden class="anchor" aria-hidden="true" href="#problem-statement">#</a></h2>
+<h3 id="task-1">Task 1<a hidden class="anchor" aria-hidden="true" href="#task-1">#</a></h3>
+<p>Given a question and a set of paragraphs, predict if the question can be answered with the given paragraphs. If yes, return the paragraph that answers the question. Each question and paragraph is associated with a specific theme. This could be “Sports”, “English” or “Mathematics” etc. A question of a theme can be
+answered by one of the paragraphs in that theme.</p>
+<h3 id="task-2">Task 2<a hidden class="anchor" aria-hidden="true" href="#task-2">#</a></h3>
+<p>For the given questions, also predict the exact answer from the
+predicted paragraph. Predict the start_index and the answer_text field for the given question. Note: Both the tasks will be marked individually. However, to perform better in Task 2, your model needs to perform better in Task 1.</p>
+<hr>
+<h2 id="dataset">Dataset<a hidden class="anchor" aria-hidden="true" href="#dataset">#</a></h2>
+<p>The training data provided was a subset of SQuAD2.0 dataset.
+The dataset contains the following fields:</p>
+<ol>
+<li><strong>Question</strong> - Question for which answer is to be found</li>
+<li><strong>Theme</strong> - Name of the domain this question &amp; paragraph belongs to.</li>
+<li><strong>Paragraph</strong> - Paragraph from the mentioned theme which may contain the answer</li>
+<li><strong>Answer_possible</strong> - If the answer is possible from the given paragraph</li>
+<li><strong>Answer_text</strong> - Answers from the given paragraph</li>
+<li><strong>Answer_start</strong> - Index position from where the answer starts</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zed" data-lang="zed"><span style="display:flex;"><span>Theme,Paragraph,Question,Answer_possible,Answer_text,Answer_start<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Beyoncé,<span style="color:#f00;background-color:#faa">&#34;</span>Beyoncé<span style="color:#bbb"> </span>Giselle<span style="color:#bbb"> </span>Knowles-Carter<span style="color:#bbb"> </span>(/<span style="color:#0aa;text-decoration:underline">biːˈjɒnseɪ/</span><span style="color:#bbb"> </span>bee-YON-say)<span style="color:#bbb"> </span>(born<span style="color:#bbb"> </span>September<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">4</span>,<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">1981</span>)<span style="color:#bbb"> </span>is<span style="color:#bbb"> </span>an<span style="color:#bbb"> </span>American<span style="color:#bbb"> </span>singer,<span style="color:#bbb"> </span>songwriter,<span style="color:#bbb"> </span>record<span style="color:#bbb"> </span>producer<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>actress.<span style="color:#bbb"> </span>Born<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>raised<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>Houston,<span style="color:#bbb"> </span>Texas,<span style="color:#bbb"> </span>she<span style="color:#bbb"> </span>performed<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>various<span style="color:#bbb"> </span>singing<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>dancing<span style="color:#bbb"> </span>competitions<span style="color:#bbb"> </span>as<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>child,<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>rose<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>fame<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>late<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">1990</span>s<span style="color:#bbb"> </span>as<span style="color:#bbb"> </span>lead<span style="color:#bbb"> </span>singer<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>R&amp;B<span style="color:#bbb"> </span>girl-group<span style="color:#bbb"> </span>Destiny<span style="color:#f00;background-color:#faa">&#39;</span>s<span style="color:#bbb"> </span>Child.<span style="color:#bbb"> </span>Managed<span style="color:#bbb"> </span>by<span style="color:#bbb"> </span>her<span style="color:#bbb"> </span>father,<span style="color:#bbb"> </span>Mathew<span style="color:#bbb"> </span>Knowles,<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>group<span style="color:#bbb"> </span>became<span style="color:#bbb"> </span>one<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>world<span style="color:#f00;background-color:#faa">&#39;</span>s<span style="color:#bbb"> </span>best-selling<span style="color:#bbb"> </span>girl<span style="color:#bbb"> </span>groups<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>all<span style="color:#bbb"> </span>time.<span style="color:#bbb"> </span>Their<span style="color:#bbb"> </span>hiatus<span style="color:#bbb"> </span>saw<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>release<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>Beyoncé<span style="color:#f00;background-color:#faa">&#39;</span>s<span style="color:#bbb"> </span>debut<span style="color:#bbb"> </span>album,<span style="color:#bbb"> </span>Dangerously<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>Love<span style="color:#bbb"> </span>(<span style="color:#f00;background-color:#faa">2003</span>),<span style="color:#bbb"> </span>which<span style="color:#bbb"> </span>established<span style="color:#bbb"> </span>her<span style="color:#bbb"> </span>as<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>solo<span style="color:#bbb"> </span>artist<span style="color:#bbb"> </span>worldwide,<span style="color:#bbb"> </span>earned<span style="color:#bbb"> </span>five<span style="color:#bbb"> </span>Grammy<span style="color:#bbb"> </span>Awards<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>featured<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Billboard<span style="color:#bbb"> </span>Hot<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">100</span><span style="color:#bbb"> </span>number-one<span style="color:#bbb"> </span>singles<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>Crazy<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>Love<span style="color:#f00;background-color:#faa">&#34;&#34;</span><span style="color:#bbb"> </span>and<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>Baby<span style="color:#bbb"> </span>Boy<span style="color:#f00;background-color:#faa">&#34;&#34;</span>.<span style="color:#f00;background-color:#faa">&#34;</span>,When<span style="color:#bbb"> </span>did<span style="color:#bbb"> </span>Beyonce<span style="color:#bbb"> </span>leave<span style="color:#bbb"> </span>Destiny<span style="color:#f00;background-color:#faa">&#39;</span>s<span style="color:#bbb"> </span>Child<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>become<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>solo<span style="color:#bbb"> </span>singer?,True,[<span style="color:#f00;background-color:#faa">&#39;2003&#39;</span>],[<span style="color:#f00;background-color:#faa">526</span>]<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Military_history_of_the_United_States,<span style="color:#f00;background-color:#faa">&#34;</span>In<span style="color:#bbb"> </span>January<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">2002</span>,<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>U.S.<span style="color:#bbb"> </span>sent<span style="color:#bbb"> </span>more<span style="color:#bbb"> </span>than<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">1</span>,<span style="color:#f00;background-color:#faa">200</span><span style="color:#bbb"> </span>troops<span style="color:#bbb"> </span>(later<span style="color:#bbb"> </span>raised<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">2</span>,<span style="color:#f00;background-color:#faa">000</span>)<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>assist<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Armed<span style="color:#bbb"> </span>Forces<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Philippines<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>combating<span style="color:#bbb"> </span>terrorist<span style="color:#bbb"> </span>groups<span style="color:#bbb"> </span>linked<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>al-Qaida,<span style="color:#bbb"> </span>such<span style="color:#bbb"> </span>as<span style="color:#bbb"> </span>Abu<span style="color:#bbb"> </span>Sayyaf,<span style="color:#bbb"> </span>under<span style="color:#bbb"> </span>Operation<span style="color:#bbb"> </span>Enduring<span style="color:#bbb"> </span>Freedom<span style="color:#bbb"> </span>-<span style="color:#bbb"> </span>Philippines.<span style="color:#bbb"> </span>Operations<span style="color:#bbb"> </span>have<span style="color:#bbb"> </span>taken<span style="color:#bbb"> </span>place<span style="color:#bbb"> </span>mostly<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Sulu<span style="color:#bbb"> </span>Archipelago,<span style="color:#bbb"> </span>where<span style="color:#bbb"> </span>terrorists<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>other<span style="color:#bbb"> </span>groups<span style="color:#bbb"> </span>are<span style="color:#bbb"> </span>active.<span style="color:#bbb"> </span>The<span style="color:#bbb"> </span>majority<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>troops<span style="color:#bbb"> </span>provide<span style="color:#bbb"> </span>logistics.<span style="color:#bbb"> </span>However,<span style="color:#bbb"> </span>there<span style="color:#bbb"> </span>are<span style="color:#bbb"> </span>special<span style="color:#bbb"> </span>forces<span style="color:#bbb"> </span>troops<span style="color:#bbb"> </span>that<span style="color:#bbb"> </span>are<span style="color:#bbb"> </span>training<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>assisting<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>combat<span style="color:#bbb"> </span>operations<span style="color:#bbb"> </span>against<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>terrorist<span style="color:#bbb"> </span>groups.<span style="color:#f00;background-color:#faa">&#34;</span>,Terrorists<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Philippines<span style="color:#bbb"> </span>were<span style="color:#bbb"> </span>linked<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>what<span style="color:#bbb"> </span>larger<span style="color:#bbb"> </span>terrorist<span style="color:#bbb"> </span>organization?,True,[<span style="color:#f00;background-color:#faa">&#39;</span>al-Qaida<span style="color:#f00;background-color:#faa">&#39;</span>],[<span style="color:#f00;background-color:#faa">164</span>]<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Steven_Spielberg,<span style="color:#f00;background-color:#faa">&#34;</span>His<span style="color:#bbb"> </span>next<span style="color:#bbb"> </span>theatrical<span style="color:#bbb"> </span>release<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>that<span style="color:#bbb"> </span>same<span style="color:#bbb"> </span>year<span style="color:#bbb"> </span>was<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>World<span style="color:#bbb"> </span>War<span style="color:#bbb"> </span>II<span style="color:#bbb"> </span>film<span style="color:#bbb"> </span>Saving<span style="color:#bbb"> </span>Private<span style="color:#bbb"> </span>Ryan,<span style="color:#bbb"> </span>about<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>group<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>U.S.<span style="color:#bbb"> </span>soldiers<span style="color:#bbb"> </span>led<span style="color:#bbb"> </span>by<span style="color:#bbb"> </span>Capt.<span style="color:#bbb"> </span>Miller<span style="color:#bbb"> </span>(Tom<span style="color:#bbb"> </span>Hanks)<span style="color:#bbb"> </span>sent<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>bring<span style="color:#bbb"> </span>home<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>paratrooper<span style="color:#bbb"> </span>whose<span style="color:#bbb"> </span>three<span style="color:#bbb"> </span>older<span style="color:#bbb"> </span>brothers<span style="color:#bbb"> </span>were<span style="color:#bbb"> </span>killed<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>same<span style="color:#bbb"> </span>twenty-four<span style="color:#bbb"> </span>hours,<span style="color:#bbb"> </span>June<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">5–6</span>,<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Normandy<span style="color:#bbb"> </span>landing.<span style="color:#bbb"> </span>The<span style="color:#bbb"> </span>film<span style="color:#bbb"> </span>was<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>huge<span style="color:#bbb"> </span>box<span style="color:#bbb"> </span>office<span style="color:#bbb"> </span>success,<span style="color:#bbb"> </span>grossing<span style="color:#bbb"> </span>over<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">$481</span><span style="color:#bbb"> </span>million<span style="color:#bbb"> </span>worldwide<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>was<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>biggest<span style="color:#bbb"> </span>film<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>year<span style="color:#bbb"> </span>at<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>North<span style="color:#bbb"> </span>American<span style="color:#bbb"> </span>box<span style="color:#bbb"> </span>office<span style="color:#bbb"> </span>(worldwide<span style="color:#bbb"> </span>it<span style="color:#bbb"> </span>made<span style="color:#bbb"> </span>second<span style="color:#bbb"> </span>place<span style="color:#bbb"> </span>after<span style="color:#bbb"> </span>Michael<span style="color:#bbb"> </span>Bay<span style="color:#f00;background-color:#faa">&#39;</span>s<span style="color:#bbb"> </span>Armageddon).<span style="color:#bbb"> </span>Spielberg<span style="color:#bbb"> </span>won<span style="color:#bbb"> </span>his<span style="color:#bbb"> </span>second<span style="color:#bbb"> </span>Academy<span style="color:#bbb"> </span>Award<span style="color:#bbb"> </span>for<span style="color:#bbb"> </span>his<span style="color:#bbb"> </span>direction.<span style="color:#bbb"> </span>The<span style="color:#bbb"> </span>film<span style="color:#f00;background-color:#faa">&#39;</span>s<span style="color:#bbb"> </span>graphic,<span style="color:#bbb"> </span>realistic<span style="color:#bbb"> </span>depiction<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>combat<span style="color:#bbb"> </span>violence<span style="color:#bbb"> </span>influenced<span style="color:#bbb"> </span>later<span style="color:#bbb"> </span>war<span style="color:#bbb"> </span>films<span style="color:#bbb"> </span>such<span style="color:#bbb"> </span>as<span style="color:#bbb"> </span>Black<span style="color:#bbb"> </span>Hawk<span style="color:#bbb"> </span>Down<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>Enemy<span style="color:#bbb"> </span>at<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Gates.<span style="color:#bbb"> </span>The<span style="color:#bbb"> </span>film<span style="color:#bbb"> </span>was<span style="color:#bbb"> </span>also<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>first<span style="color:#bbb"> </span>major<span style="color:#bbb"> </span>hit<span style="color:#bbb"> </span>for<span style="color:#bbb"> </span>DreamWorks,<span style="color:#bbb"> </span>which<span style="color:#bbb"> </span>co-produced<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>film<span style="color:#bbb"> </span>with<span style="color:#bbb"> </span>Paramount<span style="color:#bbb"> </span>Pictures<span style="color:#bbb"> </span>(as<span style="color:#bbb"> </span>such,<span style="color:#bbb"> </span>it<span style="color:#bbb"> </span>was<span style="color:#bbb"> </span>Spielberg<span style="color:#f00;background-color:#faa">&#39;</span>s<span style="color:#bbb"> </span>first<span style="color:#bbb"> </span>release<span style="color:#bbb"> </span>from<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>latter<span style="color:#bbb"> </span>that<span style="color:#bbb"> </span>was<span style="color:#bbb"> </span>not<span style="color:#bbb"> </span>part<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Indiana<span style="color:#bbb"> </span>Jones<span style="color:#bbb"> </span>series).<span style="color:#bbb"> </span>Later,<span style="color:#bbb"> </span>Spielberg<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>Tom<span style="color:#bbb"> </span>Hanks<span style="color:#bbb"> </span>produced<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>TV<span style="color:#bbb"> </span>mini-series<span style="color:#bbb"> </span>based<span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>Stephen<span style="color:#bbb"> </span>Ambrose<span style="color:#f00;background-color:#faa">&#39;</span>s<span style="color:#bbb"> </span>book<span style="color:#bbb"> </span>Band<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>Brothers.<span style="color:#bbb"> </span>The<span style="color:#bbb"> </span>ten-part<span style="color:#bbb"> </span>HBO<span style="color:#bbb"> </span>mini-series<span style="color:#bbb"> </span>follows<span style="color:#bbb"> </span>Easy<span style="color:#bbb"> </span>Company<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">101</span>st<span style="color:#bbb"> </span>Airborne<span style="color:#bbb"> </span>Division<span style="color:#f00;background-color:#faa">&#39;</span>s<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">506</span>th<span style="color:#bbb"> </span>Parachute<span style="color:#bbb"> </span>Infantry<span style="color:#bbb"> </span>Regiment.<span style="color:#bbb"> </span>The<span style="color:#bbb"> </span>series<span style="color:#bbb"> </span>won<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>number<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>awards<span style="color:#bbb"> </span>at<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Golden<span style="color:#bbb"> </span>Globes<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Emmys.<span style="color:#f00;background-color:#faa">&#34;</span>,Which<span style="color:#bbb"> </span>studio<span style="color:#bbb"> </span>produced<span style="color:#bbb"> </span>Armageddon?,False,[],[]<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Religion_in_ancient_Rome,<span style="color:#f00;background-color:#faa">&#34;</span>Lucan<span style="color:#bbb"> </span>depicts<span style="color:#bbb"> </span>Sextus<span style="color:#bbb"> </span>Pompeius,<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>doomed<span style="color:#bbb"> </span>son<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>Pompey<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Great,<span style="color:#bbb"> </span>as<span style="color:#bbb"> </span>convinced<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>the<span style="color:#bbb"> </span>gods<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>heaven<span style="color:#bbb"> </span>knew<span style="color:#bbb"> </span>too<span style="color:#bbb"> </span>little<span style="color:#f00;background-color:#faa">&#34;&#34;</span><span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>awaiting<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Battle<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>Pharsalus<span style="color:#bbb"> </span>by<span style="color:#bbb"> </span>consulting<span style="color:#bbb"> </span>with<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>Thessalian<span style="color:#bbb"> </span>witch<span style="color:#bbb"> </span>Erichtho,<span style="color:#bbb"> </span>who<span style="color:#bbb"> </span>practices<span style="color:#bbb"> </span>necromancy<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>inhabits<span style="color:#bbb"> </span>deserted<span style="color:#bbb"> </span>graves,<span style="color:#bbb"> </span>feeding<span style="color:#bbb"> </span>on<span style="color:#bbb"> </span>rotting<span style="color:#bbb"> </span>corpses.<span style="color:#bbb"> </span>Erichtho,<span style="color:#bbb"> </span>it<span style="color:#bbb"> </span>is<span style="color:#bbb"> </span>said,<span style="color:#bbb"> </span>can<span style="color:#bbb"> </span>arrest<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>the<span style="color:#bbb"> </span>rotation<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>heavens<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>flow<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>rivers<span style="color:#f00;background-color:#faa">&#34;&#34;</span><span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>make<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>austere<span style="color:#bbb"> </span>old<span style="color:#bbb"> </span>men<span style="color:#bbb"> </span>blaze<span style="color:#bbb"> </span>with<span style="color:#bbb"> </span>illicit<span style="color:#bbb"> </span>passions<span style="color:#f00;background-color:#faa">&#34;&#34;</span>.<span style="color:#bbb"> </span>She<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>her<span style="color:#bbb"> </span>clients<span style="color:#bbb"> </span>are<span style="color:#bbb"> </span>portrayed<span style="color:#bbb"> </span>as<span style="color:#bbb"> </span>undermining<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>natural<span style="color:#bbb"> </span>order<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>gods,<span style="color:#bbb"> </span>mankind<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>destiny.<span style="color:#bbb"> </span>A<span style="color:#bbb"> </span>female<span style="color:#bbb"> </span>foreigner<span style="color:#bbb"> </span>from<span style="color:#bbb"> </span>Thessaly,<span style="color:#bbb"> </span>notorious<span style="color:#bbb"> </span>for<span style="color:#bbb"> </span>witchcraft,<span style="color:#bbb"> </span>Erichtho<span style="color:#bbb"> </span>is<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>stereotypical<span style="color:#bbb"> </span>witch<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>Latin<span style="color:#bbb"> </span>literature,<span style="color:#bbb"> </span>along<span style="color:#bbb"> </span>with<span style="color:#bbb"> </span>Horace<span style="color:#f00;background-color:#faa">&#39;</span>s<span style="color:#bbb"> </span>Canidia.<span style="color:#f00;background-color:#faa">&#34;</span>,How<span style="color:#bbb"> </span>was<span style="color:#bbb"> </span>Erichtho<span style="color:#bbb"> </span>portrayed?,True,[<span style="color:#f00;background-color:#faa">&#39;</span>stereotypical<span style="color:#bbb"> </span>witch<span style="color:#f00;background-color:#faa">&#39;</span>],[<span style="color:#f00;background-color:#faa">602</span>]<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Matter,<span style="color:#f00;background-color:#faa">&#34;</span>The<span style="color:#bbb"> </span>term<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>matter<span style="color:#f00;background-color:#faa">&#34;&#34;</span><span style="color:#bbb"> </span>is<span style="color:#bbb"> </span>used<span style="color:#bbb"> </span>throughout<span style="color:#bbb"> </span>physics<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>bewildering<span style="color:#bbb"> </span>variety<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>contexts:<span style="color:#bbb"> </span>for<span style="color:#bbb"> </span>example,<span style="color:#bbb"> </span>one<span style="color:#bbb"> </span>refers<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>condensed<span style="color:#bbb"> </span>matter<span style="color:#bbb"> </span>physics<span style="color:#f00;background-color:#faa">&#34;&#34;</span>,<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>elementary<span style="color:#bbb"> </span>matter<span style="color:#f00;background-color:#faa">&#34;&#34;</span>,<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>partonic<span style="color:#f00;background-color:#faa">&#34;&#34;</span><span style="color:#bbb"> </span>matter,<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>dark<span style="color:#f00;background-color:#faa">&#34;&#34;</span><span style="color:#bbb"> </span>matter,<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>anti<span style="color:#f00;background-color:#faa">&#34;&#34;</span>-matter,<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>strange<span style="color:#f00;background-color:#faa">&#34;&#34;</span><span style="color:#bbb"> </span>matter,<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>nuclear<span style="color:#f00;background-color:#faa">&#34;&#34;</span><span style="color:#bbb"> </span>matter.<span style="color:#bbb"> </span>In<span style="color:#bbb"> </span>discussions<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>matter<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>antimatter,<span style="color:#bbb"> </span>normal<span style="color:#bbb"> </span>matter<span style="color:#bbb"> </span>has<span style="color:#bbb"> </span>been<span style="color:#bbb"> </span>referred<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>by<span style="color:#bbb"> </span>Alfvén<span style="color:#bbb"> </span>as<span style="color:#bbb"> </span>koinomatter<span style="color:#bbb"> </span>(Gk.<span style="color:#bbb"> </span>common<span style="color:#bbb"> </span>matter).<span style="color:#bbb"> </span>It<span style="color:#bbb"> </span>is<span style="color:#bbb"> </span>fair<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>say<span style="color:#bbb"> </span>that<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>physics,<span style="color:#bbb"> </span>there<span style="color:#bbb"> </span>is<span style="color:#bbb"> </span>no<span style="color:#bbb"> </span>broad<span style="color:#bbb"> </span>consensus<span style="color:#bbb"> </span>as<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>general<span style="color:#bbb"> </span><span style="color:#0aa">definition</span><span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>matter,<span style="color:#bbb"> </span>and<span style="color:#bbb"> </span>the<span style="color:#bbb"> </span>term<span style="color:#bbb"> </span><span style="color:#f00;background-color:#faa">&#34;&#34;</span>matter<span style="color:#f00;background-color:#faa">&#34;&#34;</span><span style="color:#bbb"> </span>usually<span style="color:#bbb"> </span>is<span style="color:#bbb"> </span>used<span style="color:#bbb"> </span>in<span style="color:#bbb"> </span>conjunction<span style="color:#bbb"> </span>with<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>specifying<span style="color:#bbb"> </span>modifier.<span style="color:#f00;background-color:#faa">&#34;</span>,What<span style="color:#bbb"> </span>field<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>study<span style="color:#bbb"> </span>has<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>variety<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span>unusual<span style="color:#bbb"> </span>contexts?,False,[],[]<span style="color:#bbb">
+</span></span></span></code></pre></div><hr>
+<h2 id="our-approach">Our Approach<a hidden class="anchor" aria-hidden="true" href="#our-approach">#</a></h2>
+<h3 id="pipeline-overview">Pipeline Overview<a hidden class="anchor" aria-hidden="true" href="#pipeline-overview">#</a></h3>
+<p>Our final pipeline for the given task includes the following parts:</p>
+<ol>
+<li>Previously Answered Questions
+<ul>
+<li>Fuzzy match with paraphrased questions</li>
+</ul>
+</li>
+<li>Sentence Retrieval
+<ul>
+<li>Retrieval of Top K (dynamically chosen) sentences to form the context for the question-answering model.</li>
+</ul>
+</li>
+<li>Question Answering
+<ul>
+<li>Question-answering model inference on the retrieved context.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="key-points">Key Points<a hidden class="anchor" aria-hidden="true" href="#key-points">#</a></h2>
+<ul>
+<li><strong>Sentence Based Retrieval</strong></li>
+<li><strong><a href="https://github.com/SpyzzVVarun/question_generation" target="_blank">Question Generation using Transformers</a>
+</strong></li>
+<li><strong>Unsupervised Training of Retrievers Using GenQ</strong>
+<ul>
+<li>Generate queries for pre-existing but unlabeled passages: Creating (query, passage) pairs.</li>
+<li>Fine-tune a bi-encoder model using these (query, passage) pairs and Multiple Negatives Ranking (MNR) loss.</li>
+<li><img loading="lazy" src="https://d33wubrfki0l68.cloudfront.net/072f1e19b9b0e0271da6946d46095b5891db6c2f/adf5a/images/genq-1.jpg" alt="GenQ"  />
+</li>
+</ul>
+</li>
+<li><strong>Paraphrasing Questions Using T5-Transformer</strong>
+<ul>
+<li>Generated paraphrases of the questions given in the data using T5 Paraphraser.</li>
+<li>Used Fuzzy Match Ratio to find out the similarity between incoming question and the paraphrased questions.</li>
+<li>Used <a href="https://github.com/Ki6an/fastT5" target="_blank">fastT5</a>
+ library to reduce the runtime.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="contributors">Contributors<a hidden class="anchor" aria-hidden="true" href="#contributors">#</a></h2>
+<ul>
+<li><a href="https://github.com/SpyzzVVarun" target="_blank">@SpyzzVVarun</a>
+</li>
+<li><a href="https://github.com/amish1706" target="_blank">@amish1706</a>
+</li>
+<li><a href="https://github.com/Nidhi15-02" target="_blank">@Nidhi15-02</a>
+</li>
+<li><a href="https://github.com/Roshan818" target="_blank">@Roshan818</a>
+</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://roshan818.github.io/tags/domain-specific-qa/">Domain Specific QA</a></li>
+      <li><a href="https://roshan818.github.io/tags/question-generation/">Question Generation</a></li>
+      <li><a href="https://roshan818.github.io/tags/ner-re-ranking/">NER Re-Ranking</a></li>
+      <li><a href="https://roshan818.github.io/tags/genq/">GenQ</a></li>
+      <li><a href="https://roshan818.github.io/tags/t5-paraphraser/">T5-Paraphraser</a></li>
+      <li><a href="https://roshan818.github.io/tags/fastt5/">fastT5</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    &copy; 2023 Roshan Kumar
+    <span>
+    &middot;  Powered by 
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/pmichaillat/hugo-website/" rel="noopener" target="_blank">a modified version</a>
+         of 
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

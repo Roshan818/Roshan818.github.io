@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Roshan Kumar</title>
+    <link>https://roshan818.github.io/</link>
+    <description>Recent content on Roshan Kumar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://roshan818.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chess Engine Overview</title>
+      <link>https://roshan818.github.io/projects/chess/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/projects/chess/</guid>
+      <description>AI-based Chess Engine using traditional algorithms.</description>
+    </item>
+    
+    <item>
+      <title>Parameter and State Estimation of Vibrating Structures Equipped with Geometrically Consistent Tuned Mass Damper</title>
+      <link>https://roshan818.github.io/experience/parameter_estimation/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/experience/parameter_estimation/</guid>
+      <description>This paper shows things. Published in Journal Name, 2012.</description>
+    </item>
+    
+    <item>
+      <title>Data Analytics Intern | TransOrg Analytics</title>
+      <link>https://roshan818.github.io/experience/transorg_analytics/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/experience/transorg_analytics/</guid>
+      <description>Data Analyst Intern at TransOrg Analytics. Worked on a project to model the pricing strategy of Cars in India using XG-Boost.</description>
+    </item>
+    
+    <item>
+      <title>Devrev&#39;s Expert Answers in a Flash : Improving Domain-Specific QA</title>
+      <link>https://roshan818.github.io/projects/devrev/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/projects/devrev/</guid>
+      <description>This undergraduate course presents many new things.</description>
+    </item>
+    
+    <item>
+      <title>Bosch Age and Gender Detection from low quality CCTV footage</title>
+      <link>https://roshan818.github.io/projects/bosch/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/projects/bosch/</guid>
+      <description>This graduate course presents things.</description>
+    </item>
+    
+    
+    <item>
+      <title>Location</title>
+      <link>https://roshan818.github.io/location/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/location/</guid>
+      <description>Mailing and office addresses at the University of Place.</description>
+    </item>
+    
+    <item>
+      <title>Office Hours</title>
+      <link>https://roshan818.github.io/officehours/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/officehours/</guid>
+      <description>Schedule and location for office hours.</description>
+    </item>
+    
+  </channel>
+</rss>

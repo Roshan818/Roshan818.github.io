@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Roshan Kumar</title>
+    <link>https://roshan818.github.io/tags/</link>
+    <description>Recent content in Tags on Roshan Kumar</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://roshan818.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Geodesic Component Analysis</title>
+      <link>https://roshan818.github.io/tags/geodesic-component-analysis/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/geodesic-component-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geodesics</title>
+      <link>https://roshan818.github.io/tags/geodesics/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/geodesics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kalman Filter</title>
+      <link>https://roshan818.github.io/tags/kalman-filter/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/kalman-filter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Min-Max</title>
+      <link>https://roshan818.github.io/tags/min-max/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/min-max/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NegaMax</title>
+      <link>https://roshan818.github.io/tags/negamax/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/negamax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rimenninan Geometry</title>
+      <link>https://roshan818.github.io/tags/rimenninan-geometry/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/rimenninan-geometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>https://roshan818.github.io/tags/sql/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tableau</title>
+      <link>https://roshan818.github.io/tags/tableau/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/tableau/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>XG-Boost</title>
+      <link>https://roshan818.github.io/tags/xg-boost/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/xg-boost/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Domain Specific QA</title>
+      <link>https://roshan818.github.io/tags/domain-specific-qa/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/domain-specific-qa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fastT5</title>
+      <link>https://roshan818.github.io/tags/fastt5/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/fastt5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenQ</title>
+      <link>https://roshan818.github.io/tags/genq/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/genq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NER Re-Ranking</title>
+      <link>https://roshan818.github.io/tags/ner-re-ranking/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/ner-re-ranking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Question Generation</title>
+      <link>https://roshan818.github.io/tags/question-generation/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/question-generation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>T5-Paraphraser</title>
+      <link>https://roshan818.github.io/tags/t5-paraphraser/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/t5-paraphraser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ByteTracker</title>
+      <link>https://roshan818.github.io/tags/bytetracker/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/bytetracker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coral</title>
+      <link>https://roshan818.github.io/tags/coral/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/coral/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SAHI</title>
+      <link>https://roshan818.github.io/tags/sahi/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/sahi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SWIN Transformer</title>
+      <link>https://roshan818.github.io/tags/swin-transformer/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/swin-transformer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SwinIR</title>
+      <link>https://roshan818.github.io/tags/swinir/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/swinir/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yolov5</title>
+      <link>https://roshan818.github.io/tags/yolov5/</link>
+      <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://roshan818.github.io/tags/yolov5/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
