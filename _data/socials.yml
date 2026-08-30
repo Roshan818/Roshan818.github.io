@@ -13,11 +13,68 @@
 #   title: Custom Social
 #   url: https://www.alberteinstein.com/
 
-email: krroshan81@gmail.com
+# email: krroshan81@gmail.com
+# github_username: Roshan818
+# linkedin_username: roshan-kumar-01
+# x_username: Roshan_kumar81
+# kaggle_id: roshan81
+# scholar_userid: # leave blank until you have a Scholar profile
+# cv_pdf: cv.pdf
+# rss_icon: true
+
+# _data/socials.yml
+# Leave a value blank to hide that icon. Keep the keys.
+
+email: "krroshan81@gmail.com — k.roshan@iitg.ac.in may have expired>>"
 github_username: Roshan818
 linkedin_username: roshan-kumar-01
 x_username: Roshan_kumar81
 kaggle_id: roshan81
-scholar_userid: # leave blank until you have a Scholar profile
-cv_pdf: cv.pdf
+
+# Turn these on when they exist (2027)
+scholar_userid:
+googlescholar_id:
+orcid_id:
+semanticscholar_id:
+openreview_id:
+research_gate_profile:
+arxiv_id:
+dblp_url:
+inspirehep_id:
+
+# Not used
+acm_id:
+bluesky_url:
+blogger_url:
+codepen_id:
+crossref_id:
+discord_id:
+facebook_id:
+flickr_id:
+gitlab_id:
+instagram_id:
+keybase_username:
+lastfm_id:
+mastodon_username:
+medium_username:
+pinterest_id:
+publons_id:
+quora_username:
+scopus_id:
+spotify_id:
+stackoverflow_id:
+strava_userid:
+telegram_username:
+unsplash_id:
+whatsapp_number:
+wikidata_id:
+work_url:
+youtube_id:
+zotero_username:
+
 rss_icon: true
+
+contact_note: >
+  Email is the best way to reach me.
+
+cv_pdf: cv.pdf

@@ -1,14 +1,20 @@
+# _data/repositories.yml
+# Powers the /repositories/ page.
+#
+# BEFORE THIS PAGE IS WORTH SHOWING: the cards pull each repo's *description*
+# straight from GitHub. Several of these are currently blank. Go add a one-line
+# description to each repo below (Settings -> About -> Description) or the page
+# renders a wall of nameless boxes.
+
 github_users:
-  - torvalds
-  - alshedivat
+  - Roshan818
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - Roshan818/OpenEnvRLScheduling
+  - Roshan818/SlideGen_MCP
+  - Roshan818/ContextAwareQ-A
+  - Roshan818/State-and-Parameter-Estimation
+  - Roshan818/Dorm-Room-Dealer
+  - Roshan818/Panorama-Generator
