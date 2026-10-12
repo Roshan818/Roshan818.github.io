@@ -1,0 +1,199 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Building a chess engine with Negamax and alpha-beta pruning | Roshan Kumar </title> <meta name="author" content="Roshan Kumar"> <meta name="description" content="A Pygame chess engine built on classical search: board representation, legal move generation, and the algorithms that pick a move."> <meta name="keywords" content="robotics, reinforcement learning, state estimation, data engineering, PySpark"> <meta property="og:site_name" content="Roshan Kumar"> <meta property="og:type" content="article"> <meta property="og:title" content="Roshan Kumar | Building a chess engine with Negamax and alpha-beta pruning"> <meta property="og:url" content="https://roshan818.github.io/blog/2023/building-a-chess-engine/"> <meta property="og:description" content="A Pygame chess engine built on classical search: board representation, legal move generation, and the algorithms that pick a move."> <meta property="og:image" content="https://roshan818.github.io/assets/img/prof_pic.jpg"> <meta property="og:locale" content="en"> <meta name="twitter:card" content="summary"> <meta name="twitter:title" content="Building a chess engine with Negamax and alpha-beta pruning"> <meta name="twitter:description" content="A Pygame chess engine built on classical search: board representation, legal move generation, and the algorithms that pick a move."> <meta name="twitter:image" content="https://roshan818.github.io/assets/img/prof_pic.jpg"> <script type="application/ld+json">
+    {
+        "author":
+        {
+            "@type": "Person",
+            "name": "Roshan Kumar"
+        },
+        "url": "https://roshan818.github.io/blog/2023/building-a-chess-engine/",
+        "@type": "BlogPosting",
+        "description": "A Pygame chess engine built on classical search: board representation, legal move generation, and the algorithms that pick a move.",
+        "headline": "Building a chess engine with Negamax and alpha-beta pruning",
+        
+        "sameAs": ["https://github.com/Roshan818","https://www.linkedin.com/in/roshan-kumar-01","https://twitter.com/Roshan_kumar81","https://www.kaggle.com/roshan81"],
+        
+        "name": "Roshan Kumar",
+        "@context": "https://schema.org"
+    }
+  </script> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A7%AD&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://roshan818.github.io/blog/2023/building-a-chess-engine/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> <link rel="stylesheet" href="/assets/al_email_protect/css/email-protect.css"> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Roshan</span> Kumar </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/projects/">projects </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Building a chess engine with Negamax and alpha-beta pruning</h1> <p class="post-meta"> Created on August 15, 2023 </p> <p class="post-tags"> <a href="/blog/2023"> <i class="fa-solid fa-calendar fa-sm"></i> 2023 </a>   ·   <a href="/blog/tag/chess"> <i class="fa-solid fa-hashtag fa-sm"></i> chess</a>   <a href="/blog/tag/search"> <i class="fa-solid fa-hashtag fa-sm"></i> search</a>   <a href="/blog/tag/python"> <i class="fa-solid fa-hashtag fa-sm"></i> python</a>   ·   <a href="/blog/category/projects"> <i class="fa-solid fa-tag fa-sm"></i> projects</a> </p> </header> <article class="post-content"> <div id="markdown-content"> <p>In August 2023 I built a chess engine from scratch in Python with Pygame. It supports two-player and single-player games and handles the awkward rules (castling, en passant, promotion). The bot uses classical search rather than a neural network, and reached roughly 1800 when I played it against Stockfish. Code is on <a href="https://github.com/Roshan818/ChessEngine" rel="external nofollow noopener" target="_blank">GitHub</a>.</p> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/chess/figure1-480.webp 480w,/assets/img/posts/chess/figure1-800.webp 800w,/assets/img/posts/chess/figure1-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/chess/figure1.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Engine overview" loading="eager" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <p>Classical engines search the game tree to a fixed depth, score the positions they reach with a hand-written evaluation function, and choose the move that does best against the opponent’s best reply. That is a different approach from neural engines, which learn their evaluation.</p> <h2 id="how-the-engine-works">How the engine works</h2> <p><strong>Board representation.</strong> The board is an 8×8 array of integers. White pieces are 1 to 6, black pieces −1 to −6, and empty squares 0.</p> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/chess/gamestate-480.webp 480w,/assets/img/posts/chess/gamestate-800.webp 800w,/assets/img/posts/chess/gamestate-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/chess/gamestate.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Board representation" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <p><strong>Move generation.</strong> For each piece on the board, a piece-specific function generates its moves. Pins and checks are tracked while generating, so a pinned piece can only move along the pin line. Pawn moves cover double steps, captures, promotion and en passant; the king’s moves include castling.</p> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/chess/chess_moves-480.webp 480w,/assets/img/posts/chess/chess_moves-800.webp 800w,/assets/img/posts/chess/chess_moves-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/chess/chess_moves.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Move generation" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <p><strong>Move validation.</strong> A move is legal if it appears in the list of valid moves for the current position. When the king is in check, that list is cut down to moves that block the check, capture the checking piece, or move the king.</p> <p><strong>Evaluation.</strong> The evaluation checks each position for threats, pins and checks.</p> <p><strong>Move selection.</strong> The bot can pick moves four ways: at random, or with Minimax, Negamax, or Negamax with alpha-beta pruning.</p> <h2 id="the-search-algorithms">The search algorithms</h2> <h3 id="minimax">Minimax</h3> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/chess/chess_minimax-480.webp 480w,/assets/img/posts/chess/chess_minimax-800.webp 800w,/assets/img/posts/chess/chess_minimax-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/chess/chess_minimax.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Minimax" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <p>Minimax assumes both sides play their best. It runs a depth-first search to a fixed depth, scores the leaf positions with the evaluation function, and backs the scores up the tree: the side to move takes the maximum, the opponent the minimum. The search is exhaustive, so the cost grows exponentially with depth.</p> <h3 id="negamax">Negamax</h3> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/chess/plminmax-480.webp 480w,/assets/img/posts/chess/plminmax-800.webp 800w,/assets/img/posts/chess/plminmax-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/chess/plminmax.gif" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Negamax" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <p>Chess is zero-sum, so a position’s value for one player is the negative of its value for the other. Negamax uses this to fold the maximising and minimising branches of Minimax into a single recursive function. It searches the same tree, with less code and fewer places for bugs.</p> <h3 id="alpha-beta-pruning">Alpha-beta pruning</h3> <figure> <picture> <source class="responsive-img-srcset" srcset="/assets/img/posts/chess/alpha-beta-480.webp 480w,/assets/img/posts/chess/alpha-beta-800.webp 800w,/assets/img/posts/chess/alpha-beta-1400.webp 1400w," type="image/webp" sizes="95vw"></source> <img src="/assets/img/posts/chess/alpha-beta.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Alpha-beta pruning" loading="lazy" onerror="this.onerror=null; document.querySelectorAll('.responsive-img-srcset').forEach(function (n) { n.remove(); });"> </picture> </figure> <p>Alpha-beta keeps two bounds during the search: alpha, the score the maximising side is already guaranteed, and beta, the most the minimising side will allow. Once a branch can’t change the final decision, the engine stops searching it. The result is identical to plain Minimax, but far fewer nodes are evaluated, so the engine can search deeper in the same time.</p> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Roshan Kumar. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: October 12, 2026. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Research code, tools, and a couple of products.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "My GitHub profile and pinned repositories.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Roshan Kumar — experience, education, projects and skills.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "post-building-a-chess-engine-with-negamax-and-alpha-beta-pruning",
+        
+          title: "Building a chess engine with Negamax and alpha-beta pruning",
+        
+        description: "A Pygame chess engine built on classical search: board representation, legal move generation, and the algorithms that pick a move.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2023/building-a-chess-engine/";
+          
+        },
+      },{id: "books-the-godfather",
+          title: 'The Godfather',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/the_godfather/";
+            },},{id: "projects-smart-factory-scheduling",
+          title: 'Smart Factory Scheduling',
+          description: "An OpenEnv-compliant RL environment for job scheduling under machine failures and deadlines.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_openenv_scheduling/";
+            },},{id: "projects-state-and-parameter-estimation-on-manifolds",
+          title: 'State and Parameter Estimation on Manifolds',
+          description: "Unscented Kalman filtering for stochastic systems whose state lives on a Riemannian manifold.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_state_estimation/";
+            },},{id: "projects-slidegen-an-mcp-toolchain",
+          title: 'SlideGen — an MCP toolchain',
+          description: "Three Model Context Protocol servers turning documents into structured slide decks.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_slidegen_mcp/";
+            },},{id: "projects-context-aware-document-q-amp-a",
+          title: 'Context-Aware Document Q&amp;amp;A',
+          description: "Retrieval-augmented generation over PDFs and web content, with a Streamlit interface.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/4_context_aware_qa/";
+            },},{id: "projects-domain-specific-question-answering",
+          title: 'Domain-Specific Question Answering',
+          description: "Inter-IIT Tech Meet — gold medal, DevRev problem statement.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/5_devrev_qa/";
+            },},{id: "projects-dorm-room-dealer",
+          title: 'Dorm Room Dealer',
+          description: "A campus marketplace for buying and selling secondhand goods between students.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/6_dorm_room_dealer/";
+            },},{id: "projects-age-and-gender-from-cctv-footage",
+          title: 'Age and Gender from CCTV Footage',
+          description: "Inter-IIT Tech Meet 10.0 — bronze medal, Bosch problem statement.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/7_bosch_cctv/";
+            },},{id: "projects-car-price-modelling",
+          title: 'Car Price Modelling',
+          description: "Pricing trends and price prediction for the Indian car market, from my TransOrg Analytics internship.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/8_car_price_modelling/";
+            },},{id: "teachings-data-science-fundamentals",
+          title: 'Data Science Fundamentals',
+          description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/data-science-fundamentals/";
+            },},{id: "teachings-introduction-to-machine-learning",
+          title: 'Introduction to Machine Learning',
+          description: "This course provides an introduction to machine learning concepts, algorithms, and applications. Students will learn about supervised and unsupervised learning, model evaluation, and practical implementations.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/introduction-to-machine-learning/";
+            },},{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/Roshan818", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/roshan-kumar-01", "_blank");
+        },
+      },{
+        id: 'social-x',
+        title: 'X',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://twitter.com/Roshan_kumar81", "_blank");
+        },
+      },{
+        id: 'social-kaggle',
+        title: 'Kaggle',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.kaggle.com/roshan81", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> <script defer src="/assets/al_email_protect/js/email-protect.js"></script> </body> </html>
