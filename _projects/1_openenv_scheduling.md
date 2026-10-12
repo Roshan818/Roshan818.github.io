@@ -25,12 +25,12 @@ stochastic disruption. The interesting behaviour isn't optimal assignment on a s
 job list — it's what a policy does when a machine dies mid-job and the schedule it was
 committed to no longer exists.
 
-<<FILL: Results. What did you train against it, and what happened? Even "PPO beats the
+{% comment %}<<FILL: Results. What did you train against it, and what happened? Even "PPO beats the
 greedy earliest-deadline-first baseline on throughput but loses on deadline misses" is
 a real finding. If you haven't trained anything on it yet, say that plainly — an honest
-"environment built, baselines next" is fine and better than silence.>>
+"environment built, baselines next" is fine and better than silence.>>{% endcomment %}
 
 The repository is packaged as a Docker-based Hugging Face Space.
 
-<<TODO: deploy the Space and link it here. The front matter in your README already has
-`sdk: docker` set up for it. A clickable demo is worth more than this entire write-up.>>
+{% comment %}<<TODO: deploy the Space and link it here. The front matter in your README already has
+`sdk: docker` set up for it. A clickable demo is worth more than this entire write-up.>>{% endcomment %}

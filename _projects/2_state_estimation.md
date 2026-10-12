@@ -17,7 +17,10 @@ filter to those coordinates gives you estimates that drift off the manifold enti
 The unscented Kalman filter on manifolds (UKF-M) handles this by propagating sigma points
 through retraction and local-chart operations instead of vector addition.
 
-<<IMPORTANT — read before publishing this page.
+The filter itself is the UKF-M library by Brossard, Barrau and Bonnabel; my thesis work
+builds on it.
+
+{% comment %}<<IMPORTANT — read before publishing this page.
 
 The README currently in this repo is the upstream UKF-M library's own README. Anyone
 who checks will see that in about ten seconds, so the page has to be explicit about
@@ -31,11 +34,11 @@ Rewrite the paragraph below to say exactly that:
 If the honest answer is "I used the library as-is to run experiments for my thesis",
 write that. It is still a legitimate project — applying an estimation library correctly
 to a real problem is real work. What sinks you is letting a reader assume you wrote the
-filter. Also fix the repo's README while you're at it.>>
+filter. Also fix the repo's README while you're at it.>>{% endcomment %}
 
-<<FILL: what you estimated, on what system, and what the results showed>>
+{% comment %}<<FILL: what you estimated, on what system, and what the results showed>>{% endcomment %}
 
 **Why it still matters to me.** This is where my interest in estimation started, and it's
 the thread running through what I'm reading now — how a controller behaves when the state
 estimate it depends on is wrong is, to me, the more interesting half of learning for
-control.
+control.

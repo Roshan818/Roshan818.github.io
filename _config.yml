@@ -7,7 +7,7 @@ first_name: Roshan
 middle_name:
 last_name: Kumar
 contact_note: >
-  Email is the best way to reach me.
+  LinkedIn is the best way to reach me.
 description: >
   Data engineering at SCA Technologies. Interested in robotics,
   learning for control, and state estimation.
@@ -114,7 +114,7 @@ max_width: 930px
 # see https://schema.org/docs/faq.html for more information
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: true # Include Schema.org in the HTML head
-og_image: assets/img/prof_pic.jpg # The site-wide (default for all links) Open Graph preview image
+og_image: /assets/img/prof_pic.jpg # The site-wide (default for all links) Open Graph preview image
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification

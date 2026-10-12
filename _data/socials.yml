@@ -11,13 +11,11 @@
 # invented key names. Add a line only when you have a value for it.
 # Icons appear in the order listed here.
 
-email: <<FILL - the address you actually check>>
 github_username: Roshan818
 linkedin_username: roshan-kumar-01
 x_username: Roshan_kumar81
 kaggle_id: roshan81
 rss_icon: true
-cv_pdf: cv.pdf
 
 # ---------------------------------------------------------------------------
 # For 2027, when they exist. Uncomment and fill IN THE SAME MOTION — an

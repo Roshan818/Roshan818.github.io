@@ -21,6 +21,6 @@ as a tool description clear enough for a model to choose it correctly without be
 Most of the work was not the PowerPoint generation — it was designing tool boundaries so
 the model reaches for the right server unprompted.
 
-<<FILL: What broke, and what you'd do differently. Anything about how you had to phrase
+{% comment %}<<FILL: What broke, and what you'd do differently. Anything about how you had to phrase
 tool descriptions before the model used them properly is the most interesting content
-here, because almost nobody writes that part down.>>
+here, because almost nobody writes that part down.>>{% endcomment %}

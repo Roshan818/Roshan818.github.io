@@ -15,12 +15,12 @@ listings with images, accounts, and email-based notifications for enquiries.
 Built because the alternative on most campuses is a WhatsApp group where everything
 scrolls away in a day.
 
-<<FILL: Did anyone use it? Number of listings, number of users, whether it ran for a
+{% comment %}<<FILL: Did anyone use it? Number of listings, number of users, whether it ran for a
 term. A small real number here — "used by ~40 students over one semester" — is worth
 more than any feature list, because deployed-and-used is the rarest thing on a student
-portfolio.>>
+portfolio.>>{% endcomment %}
 
-<<SECURITY — do this before linking anyone here.
+{% comment %}<<SECURITY — do this before linking anyone here.
 
 Your README walks through putting a Gmail address and an app-generated password directly
 into settings.py, and lists five other files where the same address gets hardcoded.
@@ -32,4 +32,4 @@ Before you point recruiters at this repo:
      Deleting the line from the current file does NOT remove it from history.
   3. Move the credentials to environment variables and update the README.
 
-This applies whether or not you link the project — the repo is already public.>>
+This applies whether or not you link the project — the repo is already public.>>{% endcomment %}

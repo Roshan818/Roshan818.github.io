@@ -15,7 +15,6 @@
 cv:
   name: Roshan Kumar
   label: Data Engineer / Business Analyst
-  email: "<<FILL: same address as socials.yml>>"
   location: Gurugram, India
   image: ""
   summary: >
@@ -45,45 +44,21 @@ cv:
           - >
             Built and own end-to-end PySpark/Databricks pipelines populating the
             core fact tables — distribution-centre performance, sales, and vendor
-            performance. <<FILL: scale — rows per run, how often it runs, how many
-            source systems feed it>>
+            performance.
           - >
-            Designed the fact-table architecture behind <<FILL: what it serves —
-            how many downstream reports or consumers>>.
+            Designed the fact-table architecture behind the analytics layer.
           - >
-            Built a REST API for <<FILL: what the COE API actually does, and who
-            consumes it — internal teams? client systems? how many callers?>>
+            Built and maintain a custom COE REST API.
           - >
-            Own the production Tableau estate — <<FILL: how many workbooks, and
-            roughly how many users or client accounts read them>>. Debug and
+            Own the production Tableau reports. Debug and
             extend reports including DC Performance Summary, COOP Summary Monthly,
             and the Systemwide RFE Trend report.
-          - >
-            <<FILL: the 3-level stakeholder pipeline — describe it if it's not
-            client-confidential. If it is, cut this line entirely rather than
-            writing something vague.>>
-          - >
-            <<FILL: one line with a hard number in it. Runtime cut, cost saved,
-            manual hours removed, error rate dropped. If you have exactly one
-            metric, this is where it goes.>>
 
       - company: TransOrg Analytics
         position: Data Science Intern
-        location: "<<FILL: location>>"
         start_date: 2023-05
         end_date: 2023-07
         summary: ""
-        highlights:
-          - "<<FILL: what you built, one or two lines>>"
-      - company: "<<FILL: University of Utah — exact group or lab name>>"
-        position: Research Intern
-        location: Remote
-        start_date: "<<FILL: start>>"
-        end_date: "<<FILL: end>>"
-        summary: >
-          State and parameter estimation for stochastic systems.
-        highlights:
-          - "<<FILL: what you actually did — which filters, which systems>>"
     Education:
       - institution: Indian Institute of Technology Guwahati
         location: Guwahati, India
@@ -133,19 +108,12 @@ cv:
       - title: Gold Medal, Inter-IIT Tech Meet
         date: 2023
         awarder: DevRev
-        summary: >
-          <<FILL: one line on the problem — domain-specific QA under latency
-          constraints, and where your team placed against how many teams>>
+        summary: Domain-specific question answering (DevRev problem statement).
 
       - title: Bronze Medal, Inter-IIT Tech Meet
-        date: "<<FILL: year>>"
         awarder: Bosch
-        summary: "<<FILL: one line on the problem statement>>"
       - title: IEDC Funding — AntahSagari
-        date: "<<FILL: year>>"
         awarder: Innovation and Entrepreneurship Development Centre, IIT Guwahati
-        summary: >
-          <<FILL: what the underwater vehicle project was and what the grant funded>>
 
     Skills:
       - name: Data Engineering
@@ -171,8 +139,6 @@ cv:
     Languages:
       - name: English
         summary: "Fluent"
-      - name: Hindi
-        summary: "<<FILL: native / fluent>>"
       - name: German
         summary: "Beginner"
       - name: French
