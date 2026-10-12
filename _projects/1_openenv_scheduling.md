@@ -2,7 +2,6 @@
 layout: page
 title: Smart Factory Scheduling
 description: An OpenEnv-compliant RL environment for job scheduling under machine failures and deadlines.
-img: assets/img/projects/openenv.png
 importance: 1
 category: research
 github: https://github.com/Roshan818/OpenEnvRLScheduling

@@ -2,7 +2,6 @@
 layout: page
 title: Context-Aware Document Q&A
 description: Retrieval-augmented generation over PDFs and web content, with a Streamlit interface.
-img: assets/img/projects/rag.png
 importance: 4
 category: software
 github: https://github.com/Roshan818/ContextAwareQ-A

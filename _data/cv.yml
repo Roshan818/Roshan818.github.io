@@ -55,10 +55,23 @@ cv:
             and the Systemwide RFE Trend report.
 
       - company: TransOrg Analytics
-        position: Data Science Intern
+        position: Data Analyst Intern
+        location: Remote
+        start_date: 2023-05
+        end_date: 2023-08
+        summary: ""
+        highlights:
+          - Analysed client data in the automotive sector to find pricing trends and support pricing strategy.
+          - Built an interactive Tableau dashboard on SQL-prepared data and trained XGBoost and gradient-boosting models to predict car prices.
+      - company: IIT Guwahati
+        position: Research Intern, under Dr. Budhaditya Hazra
+        location: Guwahati, India
         start_date: 2023-05
         end_date: 2023-07
-        summary: ""
+        summary: Function estimation on Riemannian manifolds.
+        highlights:
+          - Explored Riemannian geometry and Itô calculus to capture nonlinear relationships using geodesics and tensors.
+          - Estimated parameters of Gaussian and log-normal densities on curved spaces with MLE and Bayesian models.
     Education:
       - institution: Indian Institute of Technology Guwahati
         location: Guwahati, India
@@ -70,8 +83,9 @@ cv:
         score: "7.1/10"
         highlights:
           - >
-            Thesis — State and parameter estimation for stochastic state-space
-            systems on Riemannian manifolds.
+            Thesis (supervised by Prof. Budhaditya Hazra) — Parameter and state
+            estimation of vibrating structures equipped with geometrically consistent
+            tuned mass dampers, using Kalman filters on Riemannian manifolds.
 
     Projects:
       - name: Smart Factory Scheduling — an OpenEnv RL environment
@@ -94,6 +108,16 @@ cv:
         start_date: 2025-06
         end_date: 2025-06
 
+      - name: Chess Engine
+        summary: >
+          Two-player and single-player chess in Pygame with castling, en passant and
+          promotion. Bot uses Negamax with alpha-beta pruning and rated about 1800
+          against Stockfish.
+        highlights:
+          - Python, Pygame, game-tree search
+        start_date: 2023-08
+        end_date: 2023-08
+
       - name: Context-Aware Document Q&A
         summary: >
           Retrieval-augmented generation over PDFs and web content —
@@ -105,15 +129,30 @@ cv:
         end_date: 2025-04
 
     Awards:
-      - title: Gold Medal, Inter-IIT Tech Meet
+      - title: Gold Medal, Inter-IIT Tech Meet 11.0
         date: 2023
         awarder: DevRev
-        summary: Domain-specific question answering (DevRev problem statement).
+        summary: >
+          DevRev's "Expert Answers in a Flash" at Inter-IIT Tech Meet 11.0. Built a
+          knowledge-base retrieval and QA pipeline with GenQ-trained retrievers, NER
+          re-ranking, and ONNX/quantised models that brought latency to about 250 ms.
 
-      - title: Bronze Medal, Inter-IIT Tech Meet
+      - title: Bronze Medal, Inter-IIT Tech Meet 10.0
+        date: 2022
         awarder: Bosch
+        summary: >
+          Age and gender detection from low-quality CCTV footage (YOLOv5, ByteTrack,
+          SwinIR, Swin Transformer with a CORAL layer): 94.4% accuracy, age MAE of 5.25.
       - title: IEDC Funding — AntahSagari
+        date: 2022
         awarder: Innovation and Entrepreneurship Development Centre, IIT Guwahati
+        summary: Finalist for Government of India funding to prototype and patent an underwater vehicle.
+      - title: International Rover Design Challenge
+        date: 2022
+        summary: Qualified in the top 16 teams worldwide.
+      - title: Best Project, Techevince 8.0
+        date: 2022
+        summary: Best Project in the Judges' Choice and Overall categories, with Yuvaan.
 
     Skills:
       - name: Data Engineering

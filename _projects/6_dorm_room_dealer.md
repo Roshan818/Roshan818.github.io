@@ -2,11 +2,9 @@
 layout: page
 title: Dorm Room Dealer
 description: A campus marketplace for buying and selling secondhand goods between students.
-img: assets/img/projects/drd.png
 importance: 6
 category: software
 github: https://github.com/Roshan818/Dorm-Room-Dealer
-redirect: https://dorm-room-dealer.vercel.app
 ---
 
 A Django marketplace for students to buy and sell secondhand items within their campus —

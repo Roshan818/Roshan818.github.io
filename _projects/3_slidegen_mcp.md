@@ -2,7 +2,6 @@
 layout: page
 title: SlideGen — an MCP toolchain
 description: Three Model Context Protocol servers turning documents into structured slide decks.
-img: assets/img/projects/slidegen.png
 importance: 3
 category: software
 github: https://github.com/Roshan818/SlideGen_MCP
