@@ -27,9 +27,10 @@ who checks will see that in about ten seconds, so the page has to be explicit ab
 what is yours and what is the library's.
 
 Rewrite the paragraph below to say exactly that:
-  - which parts are the UKF-M library by Brossard, Barrau and Bonnabel
-  - what YOU implemented, modified, or ran on top of it
-  - what system you applied it to and what you were estimating
+
+- which parts are the UKF-M library by Brossard, Barrau and Bonnabel
+- what YOU implemented, modified, or ran on top of it
+- what system you applied it to and what you were estimating
 
 If the honest answer is "I used the library as-is to run experiments for my thesis",
 write that. It is still a legitimate project — applying an estimation library correctly
@@ -61,4 +62,4 @@ on curved spaces with MLE and Bayesian models.
 **Why it still matters to me.** This is where my interest in estimation started, and it's
 the thread running through what I'm reading now — how a controller behaves when the state
 estimate it depends on is wrong is, to me, the more interesting half of learning for
-control.
+control.

@@ -21,4 +21,4 @@ Retrieval quality is where every RAG system actually lives or dies, and a page t
 discusses it honestly reads completely differently from one that lists the stack.>>{% endcomment %}
 
 {% comment %}<<TODO: deploy on Streamlit Community Cloud (free) and link it. It's already a Streamlit
-app, so this is close to zero work and turns the page into something someone can try.>>{% endcomment %}
+app, so this is close to zero work and turns the page into something someone can try.>>{% endcomment %}

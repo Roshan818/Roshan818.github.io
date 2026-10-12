@@ -48,4 +48,4 @@ T5 for inference. Describe what you actually did rather than the tag list.>>{% e
 Inter-IIT entries knowing they're team efforts. Naming your specific contribution is more
 credible than describing the whole system as though you built all of it.>>{% endcomment %}
 
-**Result.** Gold medal at Inter-IIT Tech Meet 11.0.
+**Result.** Gold medal at Inter-IIT Tech Meet 11.0.

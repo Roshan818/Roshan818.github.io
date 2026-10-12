@@ -32,4 +32,4 @@ a real finding. If you haven't trained anything on it yet, say that plainly — 
 The repository is packaged as a Docker-based Hugging Face Space.
 
 {% comment %}<<TODO: deploy the Space and link it here. The front matter in your README already has
-`sdk: docker` set up for it. A clickable demo is worth more than this entire write-up.>>{% endcomment %}
+`sdk: docker` set up for it. A clickable demo is worth more than this entire write-up.>>{% endcomment %}

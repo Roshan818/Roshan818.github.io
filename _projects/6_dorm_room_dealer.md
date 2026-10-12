@@ -24,10 +24,10 @@ Your README walks through putting a Gmail address and an app-generated password 
 into settings.py, and lists five other files where the same address gets hardcoded.
 Before you point recruiters at this repo:
 
-  1. Check the commit history for a real credential that got committed. GitHub's secret
-     scanning won't catch a Gmail app password.
-  2. If one is in there, revoke that app password in your Google account immediately.
-     Deleting the line from the current file does NOT remove it from history.
-  3. Move the credentials to environment variables and update the README.
+1. Check the commit history for a real credential that got committed. GitHub's secret
+   scanning won't catch a Gmail app password.
+2. If one is in there, revoke that app password in your Google account immediately.
+   Deleting the line from the current file does NOT remove it from history.
+3. Move the credentials to environment variables and update the README.
 
-This applies whether or not you link the project — the repo is already public.>>{% endcomment %}
+This applies whether or not you link the project — the repo is already public.>>{% endcomment %}

@@ -22,4 +22,4 @@ the model reaches for the right server unprompted.
 
 {% comment %}<<FILL: What broke, and what you'd do differently. Anything about how you had to phrase
 tool descriptions before the model used them properly is the most interesting content
-here, because almost nobody writes that part down.>>{% endcomment %}
+here, because almost nobody writes that part down.>>{% endcomment %}
