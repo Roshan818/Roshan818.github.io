@@ -30,20 +30,28 @@ pagination:
   {% endif %}
 
 <style>
-  .blog-sidebar { position: sticky; top: 5rem; align-self: flex-start; }
+  .blog-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+  }
+  .blog-main { min-width: 0; }
+  .blog-sidebar { position: sticky; top: 5rem; align-self: start; }
   .blog-sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--global-text-color-light); margin: 0 0 0.5rem; }
   .blog-sidebar ul { list-style: none; padding: 0; margin: 0 0 1.5rem; }
   .blog-sidebar li { padding: 0.3rem 0; }
   .blog-sidebar i { width: 1.1rem; color: var(--global-text-color-light); }
   .blog-main .post-list li:first-child { padding-top: 0; }
   @media (max-width: 767.98px) {
+    .blog-layout { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
     .blog-sidebar { position: static; }
     .blog-sidebar ul { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
   }
 </style>
 
-<div class="row mt-4">
-  <aside class="col-md-3 blog-sidebar">
+<div class="blog-layout">
+  <aside class="blog-sidebar">
     {% if site.display_tags and site.display_tags.size > 0 %}
       <h3>Tags</h3>
       <ul>
@@ -62,7 +70,7 @@ pagination:
     {% endif %}
   </aside>
 
-  <div class="col-md-9 blog-main">
+  <div class="blog-main">
 
 {% assign featured_posts = site.posts | where: "featured", "true" %}
 {% if featured_posts.size > 0 %}
