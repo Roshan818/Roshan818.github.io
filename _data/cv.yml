@@ -110,13 +110,22 @@ cv:
 
       - name: Chess Engine
         summary: >
-          Two-player and single-player chess in Pygame with castling, en passant and
-          promotion. Bot uses Negamax with alpha-beta pruning and rated about 1800
-          against Stockfish.
+          Chess engine written from scratch in Python (2023), revisited in 2026 to measure
+          and improve it. Raised its strength from about 1060 to about 1650 on Stockfish's
+          rating scale, measured in 100-game matches per change.
         highlights:
-          - Python, Pygame, game-tree search
+          - >
+            Validated move generation against published perft counts and python-chess:
+            fixed six rules bugs, then zero mismatches across 573,000 positions.
+          - >
+            Added a UCI interface and a reproducible match harness against Stockfish at
+            fixed ratings, with confidence intervals and every game saved.
+          - >
+            Added and measured each change separately: quiescence search with move ordering
+            (+205), a transposition table (no measurable gain), piece-square evaluation (+335).
+          - Python, alpha-beta search, UCI, pytest, GitHub Actions
         start_date: 2023-08
-        end_date: 2023-08
+        end_date: present
 
       - name: Context-Aware Document Q&A
         summary: >
