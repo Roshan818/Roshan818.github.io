@@ -9,7 +9,7 @@ giscus_comments: false
 related_posts: false
 ---
 
-In August 2023 I wrote a chess engine from scratch in Python. It has a Pygame board you can
+I wrote a chess engine from scratch in Python. It has a Pygame board you can
 play on, it knows all the rules (castling, en passant, promotion), and it plays against you.
 No chess libraries and no neural networks: just a board, a list of legal moves, and a way of
 looking ahead. The code is on [GitHub](https://github.com/Roshan818/ChessEngine).
