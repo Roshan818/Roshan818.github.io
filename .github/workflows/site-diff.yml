@@ -1,0 +1,70 @@
+name: Visual comparison with live site
+
+# On every pull request: build the site as it would be after merging, screenshot the main
+# pages (desktop light, desktop dark, mobile) next to the live site, and report what
+# changed. Fails only if a page that works on the live site is broken in the new version.
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  site-diff:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout pull request 🛎️
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Ruby 💎
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3.5"
+          bundler-cache: true
+
+      - name: Setup Python 🐍
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Setup Node 🧰
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install JS deps 📦
+        run: npm ci
+
+      - name: Build the new version (same steps as deploy) 🔧
+        run: |
+          sudo apt-get update && sudo apt-get install -y imagemagick
+          pip3 install --upgrade nbconvert
+          export JEKYLL_ENV=production
+          bundle exec jekyll build
+          npm install -g purgecss
+          purgecss -c purgecss.config.js
+
+      - name: Get the live site 🌐
+        run: |
+          git fetch --depth 1 origin gh-pages
+          git worktree add ../live-site origin/gh-pages
+
+      - name: Install browser 🧪
+        run: npx playwright install --with-deps chromium
+
+      - name: Compare 👀
+        run: |
+          python3 -m http.server 4000 --directory _site > /dev/null 2>&1 &
+          python3 -m http.server 4100 --directory ../live-site > /dev/null 2>&1 &
+          sleep 2
+          BASE_URL=http://127.0.0.1:4100 CAND_URL=http://127.0.0.1:4000 OUT=site-diff node test/visual/site-diff.js
+
+      - name: Upload screenshots 📄
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-diff
+          path: site-diff
+          if-no-files-found: ignore
