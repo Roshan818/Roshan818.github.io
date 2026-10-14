@@ -1,14 +1,7 @@
 name: Render a CV
+# Manual only for now: _data/cv.yml is written in the website's CV format, which the
+# RenderCV PDF tool rejects. Re-enable the push trigger once cv.yml is converted.
 on:
-  push:
-    branches:
-      - main
-      - master
-    paths:
-      - "_data/cv.yml"
-      - "assets/rendercv/design.yaml"
-      - "assets/rendercv/locale.yaml"
-      - "assets/rendercv/settings.yaml"
   workflow_call:
   workflow_dispatch:
 permissions:
