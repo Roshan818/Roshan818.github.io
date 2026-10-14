@@ -11,8 +11,13 @@ related_posts: false
 
 In August 2023 I built a chess engine from scratch in Python with Pygame. It supports
 two-player and single-player games and handles the awkward rules (castling, en passant,
-promotion). The bot uses classical search rather than a neural network, and reached roughly
-1800 when I played it against Stockfish. Code is on [GitHub](https://github.com/Roshan818/ChessEngine).
+promotion). The bot uses classical search rather than a neural network. Code is on
+[GitHub](https://github.com/Roshan818/ChessEngine).
+
+_Update, 2026:_ I later measured it properly, over 100 games against Stockfish limited to fixed
+ratings. This 2023 version rates about 1060 on Stockfish's scale. Quiescence search and
+piece-square tables have since taken it to about 1650; the
+[results](https://github.com/Roshan818/ChessEngine/tree/main/results) have every game.
 
 {% include figure.liquid loading="eager" path="assets/img/posts/chess/figure1.png" title="Engine overview" class="img-fluid rounded z-depth-1" %}
 
