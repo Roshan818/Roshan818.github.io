@@ -13,7 +13,7 @@ profile:
     <p>India</p>
 
 selected_papers: false
-social: true
+social: false # social links are in the footer on every page
 
 announcements:
   enabled: true

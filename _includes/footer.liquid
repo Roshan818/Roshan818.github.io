@@ -1,0 +1,109 @@
+{% comment %}
+  Site-specific override of al_folio_core's footer.
+  Changes from the theme: the footer sits at the end of the page instead of being
+  fixed to the bottom of the screen, and it carries the social links (which are no
+  longer shown in the navbar or as a large block on the about page).
+{% endcomment %}
+<footer class="site-footer" role="contentinfo">
+  {% if site.newsletter.enabled %}
+    {% if site.plugins contains 'al_newsletter' %}
+      {% include plugins/al_newsletter_form_center.liquid %}
+    {% else %}
+      {% include newsletter.liquid %}
+    {% endif %}
+  {% endif %}
+
+  <div class="container">
+    <div class="site-footer-socials">{% social_links %}</div>
+    {% if site.contact_note %}
+      <p class="site-footer-note">{{ site.contact_note }}</p>
+    {% endif %}
+    <p class="site-footer-meta">
+      &copy; {{ site.time | date: '%Y' }}
+      {{ site.first_name }}
+      {{ site.last_name }}. {{ site.footer_text }}
+      {% if site.impressum_path %}
+        <a href="{{ site.impressum_path | relative_url }}">Impressum</a>.
+      {% endif %}
+      {% if site.last_updated %}
+        Updated {{ 'now' | date: '%B %Y' }}.
+      {% endif %}
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 4rem;
+    padding: 2.25rem 0 2rem;
+    border-top: 1px solid var(--global-divider-color);
+    text-align: center;
+  }
+  .site-footer-socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+  .site-footer-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 50%;
+    font-size: 1.15rem;
+    color: var(--global-text-color-light);
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease,
+      transform 0.15s ease;
+  }
+  .site-footer-socials a:hover {
+    color: var(--global-theme-color);
+    border-color: var(--global-theme-color);
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+  .site-footer-socials a i::before {
+    color: inherit;
+  }
+  .site-footer-socials img,
+  .site-footer-socials svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+  .site-footer-note {
+    margin: 0.9rem 0 0;
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+  }
+  .site-footer-meta {
+    margin: 0.4rem 0 0;
+    font-size: 0.75rem;
+    color: var(--global-text-color-light);
+  }
+  .site-footer-meta a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .site-footer-meta a:hover {
+    color: var(--global-theme-color);
+  }
+  @media (max-width: 576px) {
+    .site-footer {
+      margin-top: 3rem;
+      padding: 1.75rem 0 1.5rem;
+    }
+    .site-footer-socials {
+      gap: 0.3rem;
+    }
+    .site-footer-socials a {
+      width: 2.1rem;
+      height: 2.1rem;
+      font-size: 0.95rem;
+    }
+  }
+</style>
